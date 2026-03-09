@@ -1,0 +1,221 @@
+# Supabase vs Firebase vs EazeMyAPI
+
+Choosing the right backend platform is an important decision for startups and developers.
+
+Three popular approaches today are:
+
+* Firebase
+* Supabase
+* EazeMyAPI
+
+Each tool solves backend development differently.
+
+This guide compares their features and helps you choose the right solution.
+
+If you are new to EazeMyAPI:
+
+[Getting Started](../docs/getting-started.md)
+
+---
+
+# Quick Overview
+
+| Platform  | Type                             | Best For                              |
+| --------- | -------------------------------- | ------------------------------------- |
+| Firebase  | Backend-as-a-Service             | Mobile apps, real-time apps           |
+| Supabase  | Open-source Firebase alternative | Developers who prefer SQL             |
+| EazeMyAPI | AI-powered backend builder       | Startup MVPs and rapid API generation |
+
+---
+
+# Firebase
+
+Firebase is a Backend-as-a-Service platform created by Google.
+
+It provides a collection of backend tools including authentication, hosting, and real-time databases.
+
+### Key Features
+
+* Authentication
+* Firestore database
+* Cloud functions
+* Hosting
+* Analytics
+
+### Advantages
+
+* Strong Google ecosystem
+* Good for real-time apps
+* Popular among mobile developers
+
+### Challenges
+
+* Vendor lock-in
+* Complex pricing at scale
+* Limited query flexibility
+* Requires configuration for many features
+
+---
+
+# Supabase
+
+Supabase is an open-source backend platform built on PostgreSQL.
+
+It aims to be a developer-friendly alternative to Firebase.
+
+### Key Features
+
+* PostgreSQL database
+* Authentication
+* Storage
+* Realtime APIs
+* Edge functions
+
+### Advantages
+
+* SQL-based database
+* Open source
+* Strong developer ecosystem
+
+### Challenges
+
+* Requires database knowledge
+* Backend configuration required
+* Less beginner-friendly for founders
+
+---
+
+# EazeMyAPI
+
+EazeMyAPI focuses on **rapid backend generation for startups and developers**.
+
+Instead of configuring infrastructure, you simply create tables or use AI to generate your backend.
+
+### Key Features
+
+* No-code backend builder
+* Automatic REST API generation
+* Custom query support
+* Simple project structure
+* AI backend generator
+
+Learn how to generate backend with AI:
+
+[Build Backend with AI in 30 Seconds](build-backend-with-ai.md)
+
+---
+
+# Backend Creation Workflow
+
+### Firebase
+
+Typical flow:
+
+Create project
+Configure database
+Write cloud functions
+Deploy services
+
+---
+
+### Supabase
+
+Typical flow:
+
+Create project
+Design PostgreSQL schema
+Configure APIs
+Deploy backend
+
+---
+
+### EazeMyAPI
+
+Typical flow:
+
+Create project
+Generate backend with AI
+APIs ready instantly
+
+Guide:
+
+[Generating APIs](../docs/generate-api.md)
+
+---
+
+# Feature Comparison
+
+| Feature               | Firebase                | Supabase          | EazeMyAPI      |
+| --------------------- | ----------------------- | ----------------- | -------------- |
+| Backend setup         | Medium complexity       | Developer-focused | Very simple    |
+| Database              | Firestore / Realtime DB | PostgreSQL        | Table-based    |
+| API generation        | Requires functions      | Auto-generated    | Auto-generated |
+| AI backend generation | No                      | No                | Yes            |
+| Best for              | Mobile apps             | SQL developers    | Startup MVPs   |
+
+---
+
+# When to Use Firebase
+
+Firebase is a good choice if you need:
+
+* Real-time mobile applications
+* Deep Google ecosystem integration
+* Built-in analytics and messaging
+
+---
+
+# When to Use Supabase
+
+Supabase is ideal if:
+
+* You prefer SQL databases
+* You want an open-source backend
+* You are comfortable managing database structure
+
+---
+
+# When to Use EazeMyAPI
+
+EazeMyAPI works best when you want:
+
+* Fast MVP backend creation
+* Automatic API generation
+* AI-assisted backend design
+* Minimal backend infrastructure management
+
+Learn how to create your first project:
+
+[Creating Your First Project](../docs/create-project.md)
+
+---
+
+# Example Use Case
+
+Startup founders often need to validate ideas quickly.
+
+Typical process using EazeMyAPI:
+
+1. Create project
+2. Generate backend using AI
+3. APIs generated automatically
+4. Connect frontend
+
+Guides:
+
+* [Creating Tables](../docs/create-tables.md)
+* [Frontend Integration](../docs/frontend-integration.md)
+
+---
+
+# Final Thoughts
+
+Firebase and Supabase are powerful backend platforms.
+
+However, many startups prefer faster backend development workflows.
+
+EazeMyAPI focuses on helping developers move from **idea → working backend quickly** using automation and AI.
+
+To start building your backend:
+
+[Getting Started](../docs/getting-started.md)

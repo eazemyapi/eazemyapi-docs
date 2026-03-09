@@ -1,0 +1,146 @@
+# Build MVP Backend in 10 Minutes with EazeMyAPI
+
+Startups often need a backend quickly to validate ideas.
+EazeMyAPI allows you to generate a production-ready backend without writing server code.
+
+This guide shows how to build an MVP backend in a few simple steps.
+
+---
+
+## Step 1 — Create a Project
+
+Login to the dashboard.
+
+Create a new project for your application.
+
+Example:
+
+```
+Project Name: StartupMVP
+```
+
+If you are new to EazeMyAPI, read the full guide:
+
+[Creating Your First Project](../docs/create-project.md)
+
+Each project contains its own database and APIs.
+
+---
+
+## Step 2 — Create Database Tables
+
+Define your core data structure.
+
+Example tables for a startup:
+
+Users
+Products
+Orders
+
+Example **Users table fields**:
+
+```
+id
+name
+email
+password
+created_at
+```
+
+Learn how to create tables in detail:
+
+[Creating Tables](../docs/create-tables.md)
+
+Once the table is created, EazeMyAPI prepares backend APIs automatically.
+
+---
+
+## Step 3 — Generate APIs
+
+EazeMyAPI automatically generates REST APIs such as:
+
+```
+GET /users
+POST /users
+PUT /users/{id}
+DELETE /users/{id}
+```
+
+These APIs allow your frontend to interact with your database instantly.
+
+Read the full API guide:
+
+[Generating APIs](../docs/generate-api.md)
+
+---
+
+## Step 4 — Secure Your APIs
+
+Include your API signature key in requests.
+
+Example header:
+
+```
+X-API-SIGNATURE: your-secret-key
+```
+
+This ensures only authorized requests access your backend.
+
+See the authentication guide:
+
+[Authentication](../docs/authentication.md)
+
+---
+
+## Step 5 — Connect Your Frontend
+
+Your APIs can be used with:
+
+React
+Next.js
+Flutter
+Android
+iOS
+
+Example JavaScript request:
+
+```javascript
+fetch("https://api.eazemyapi.com/users", {
+  headers: {
+    "X-API-SIGNATURE": "your-secret-key"
+  }
+})
+```
+
+Read the integration guide:
+
+[Frontend Integration](../docs/frontend-integration.md)
+
+---
+
+## Why Startups Use EazeMyAPI
+
+Traditional backend development requires:
+
+Server setup
+Database configuration
+API development
+Deployment infrastructure
+
+EazeMyAPI simplifies this process and allows founders to launch MVPs faster.
+
+---
+
+## Next Steps
+
+You can extend your backend by adding:
+
+Authentication
+Custom queries
+Advanced database relationships
+
+Learn more:
+
+* [Authentication](../docs/authentication.md)
+* [Writing Custom Queries](../docs/custom-queries.md)
+* [Getting Started](../docs/getting-started.md)

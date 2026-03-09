@@ -1,0 +1,123 @@
+# Firebase Alternative for Startups
+
+Firebase is a popular backend platform, but many startups look for alternatives that offer more control and simpler API management.
+
+**EazeMyAPI** provides a lightweight approach to building backend APIs without complex infrastructure.
+
+If you are new to the platform, start here:
+
+[Getting Started with EazeMyAPI](../docs/getting-started.md)
+
+---
+
+## What Firebase Offers
+
+Firebase provides:
+
+* Authentication
+* Database services
+* Cloud functions
+* Hosting
+
+However, it often introduces complexity for simple backend needs.
+
+---
+
+## Why Some Developers Look for Alternatives
+
+Common reasons include:
+
+* Vendor lock-in
+* Complex configuration
+* Limited query flexibility
+* Pricing concerns at scale
+
+---
+
+## How EazeMyAPI Helps
+
+EazeMyAPI focuses on one core goal:
+
+**Generating APIs instantly from your database.**
+
+Features include:
+
+* No-code backend builder
+* Instant REST API generation
+* Custom query support
+* Simple project structure
+
+Learn how API generation works:
+
+[Generating APIs](../docs/generate-api.md)
+
+---
+
+## Typical Use Cases
+
+EazeMyAPI works well for:
+
+* Startup MVPs
+* Mobile app backends
+* Small SaaS products
+* Rapid product prototypes
+
+If you are building an MVP backend, see:
+
+[Build MVP Backend Guide](build-mvp-backend.md)
+
+---
+
+## Example Workflow
+
+1. Create project
+   → [Creating Your First Project](../docs/create-project.md)
+
+2. Create tables
+   → [Creating Tables](../docs/create-tables.md)
+
+3. APIs generated automatically
+   → [Generating APIs](../docs/generate-api.md)
+
+4. Connect frontend application
+   → [Frontend Integration](../docs/frontend-integration.md)
+
+Your backend becomes ready in minutes.
+
+---
+
+## Security
+
+All API requests are secured using an API signature key.
+
+Example header:
+
+```
+X-API-SIGNATURE: your-secret-key
+```
+
+Learn how authentication works:
+
+[Authentication Guide](../docs/authentication.md)
+
+---
+
+## Advanced Backend Logic
+
+For complex queries or advanced data operations, EazeMyAPI allows custom queries.
+
+Learn more:
+
+[Writing Custom Queries](../docs/custom-queries.md)
+
+---
+
+## Final Thoughts
+
+Firebase remains a powerful platform, but many startups prefer simpler backend tools that allow faster MVP development.
+
+EazeMyAPI focuses on helping developers move from **idea → working backend quickly**.
+
+To start building your backend today:
+
+[Getting Started](../docs/getting-started.md)

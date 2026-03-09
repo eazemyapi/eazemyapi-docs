@@ -40,6 +40,8 @@ Everything else can be added later.
 
 # Day 1 — Planning and Backend Setup
 
+Describe your app → AI creates database → APIs ready instantly.
+
 ## Step 1 — Define the Core Problem
 
 Before writing any code, clearly define the problem your product solves.

@@ -1,0 +1,161 @@
+# API Reference
+
+This document describes how to interact with **EazeMyAPI generated APIs**.
+
+EazeMyAPI automatically generates REST APIs for each database table in your project.
+
+Describe your app → AI creates database → APIs ready instantly.
+
+Guide:
+
+[Getting Started](getting-started.md)
+
+---
+
+# Base API URL
+
+All API requests follow this format:
+
+```
+https://api.eazemyapi.com/{table-name}
+```
+
+Example:
+
+```
+https://api.eazemyapi.com/users
+```
+
+---
+
+# Authentication
+
+Every request must include the API signature header.
+
+```
+X-API-SIGNATURE: <your-secret-key>
+```
+
+You can find your key here:
+
+```
+Project → Settings → API Signature Key
+```
+
+Full guide:
+
+[Authentication](authentication.md)
+
+---
+
+# API Endpoints
+
+For each table, EazeMyAPI automatically generates REST endpoints.
+
+Example table:
+
+```
+users
+```
+
+Generated endpoints:
+
+| Method | Endpoint    | Description              |
+| ------ | ----------- | ------------------------ |
+| GET    | /users      | Retrieve all users       |
+| GET    | /users/{id} | Retrieve a specific user |
+| POST   | /users      | Create a new user        |
+| PUT    | /users/{id} | Update a user            |
+| DELETE | /users/{id} | Delete a user            |
+
+Guide:
+
+[Generating APIs](generate-api.md)
+
+---
+
+# Example Request
+
+### Get Users
+
+```javascript
+fetch("https://api.eazemyapi.com/users", {
+  headers: {
+    "X-API-SIGNATURE": "your-secret-key"
+  }
+})
+```
+
+---
+
+# Create Record
+
+```javascript
+fetch("https://api.eazemyapi.com/users", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "X-API-SIGNATURE": "your-secret-key"
+  },
+  body: JSON.stringify({
+    name: "John",
+    email: "john@example.com"
+  })
+})
+```
+
+---
+
+# Update Record
+
+```javascript
+fetch("https://api.eazemyapi.com/users/1", {
+  method: "PUT",
+  headers: {
+    "Content-Type": "application/json",
+    "X-API-SIGNATURE": "your-secret-key"
+  },
+  body: JSON.stringify({
+    name: "John Updated"
+  })
+})
+```
+
+---
+
+# Delete Record
+
+```javascript
+fetch("https://api.eazemyapi.com/users/1", {
+  method: "DELETE",
+  headers: {
+    "X-API-SIGNATURE": "your-secret-key"
+  }
+})
+```
+
+---
+
+# Response Format
+
+All APIs return JSON responses.
+
+Example:
+
+```
+{
+  "id": 1,
+  "name": "John",
+  "email": "john@example.com"
+}
+```
+
+---
+
+# Next Steps
+
+Learn more about using EazeMyAPI:
+
+* [Creating Tables](create-tables.md)
+* [Generating APIs](generate-api.md)
+* [Frontend Integration](frontend-integration.md)

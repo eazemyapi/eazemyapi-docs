@@ -1,0 +1,119 @@
+# Authentication
+
+All API requests to **EazeMyAPI** must include an authentication header.
+This ensures that only authorized applications can access your project APIs.
+
+EazeMyAPI uses a **project-level API signature key** to verify requests.
+
+---
+
+## API Signature Header
+
+Every API request must include the following header:
+
+```
+X-API-SIGNATURE: <your-secret-key>
+```
+
+This key identifies your project and authorizes the request.
+
+---
+
+## Where to Find Your API Key
+
+You can find your API signature key inside your project settings.
+
+Steps:
+
+1. Open your **Project**
+2. Go to **Settings**
+3. Copy the **API Signature Key**
+
+Location in dashboard:
+
+```
+Project → Settings → API Signature Key
+```
+
+Keep this key secure. Do not expose it publicly.
+
+---
+
+# Example API Request
+
+### JavaScript Example
+
+```javascript
+fetch("https://api.eazemyapi.com/users", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    "X-API-SIGNATURE": "your-secret-key"
+  }
+})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+});
+```
+
+This request retrieves data from the **users table**.
+
+---
+
+# Example Using cURL
+
+You can test the API using command-line tools like **cURL**.
+
+```
+curl https://api.eazemyapi.com/users \
+  -H "X-API-SIGNATURE: your-secret-key"
+```
+
+---
+
+# Example Using Postman
+
+When testing APIs in **Postman**:
+
+1. Open Postman
+2. Create a new request
+3. Go to the **Headers** tab
+4. Add the following header
+
+```
+Key: X-API-SIGNATURE
+Value: your-secret-key
+```
+
+Then send the request.
+
+---
+
+# Security Best Practices
+
+Follow these guidelines to protect your API key:
+
+* Never expose your secret key in public repositories
+* Avoid placing secret keys directly inside frontend code
+* Store API keys in environment variables
+* Rotate keys if you suspect unauthorized access
+
+---
+
+# Important Note
+
+The API signature key gives access to your project APIs.
+
+Anyone who has this key can send requests to your backend.
+Always handle it securely and avoid sharing it publicly.
+
+---
+
+# Next Step
+
+Once authentication is configured, you can start executing advanced database operations.
+
+Continue to:
+
+[Writing Custom Queries](custom-queries.md)

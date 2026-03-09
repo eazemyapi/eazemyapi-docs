@@ -1,0 +1,86 @@
+# Creating Your First Project
+
+A **Project** in EazeMyAPI is the main workspace where you build your backend.
+
+Each project contains:
+
+* Database tables
+* Automatically generated APIs
+* API authentication settings
+* Project-level configurations
+
+You can create multiple projects to manage different applications.
+
+---
+
+## Step 1 — Login to Dashboard
+
+Go to the EazeMyAPI dashboard.
+
+```
+https://eazemyapi.com
+```
+
+Sign in using your account.
+
+After login, you will see the **Projects Dashboard**.
+
+---
+
+## Step 2 — Create a New Project
+
+Click the **Create Project** button.
+
+Enter the following details:
+
+* **Project Name** – Name of your application backend
+* **Description (optional)** – Short description of the project
+
+Example:
+
+```
+Project Name: MyStartupApp
+Description: Backend for my MVP mobile app
+```
+
+Click **Create** to continue.
+
+---
+
+## Step 3 — Project Environment Ready
+
+Once the project is created, EazeMyAPI automatically prepares the backend environment.
+
+Your project now includes:
+
+* Database system
+* API generation engine
+* API authentication system
+* Project configuration settings
+
+You are now ready to start building your backend.
+
+---
+
+## Step 4 — Open the Project Dashboard
+
+Click your project from the project list.
+
+Inside the project dashboard you will see options like:
+
+* Tables
+* APIs
+* Queries
+* Settings
+
+This is where you will manage your backend structure.
+
+---
+
+## Next Step
+
+Now that your project is ready, the next step is to create database tables.
+
+Continue to the next guide:
+
+[Creating Tables](create-tables.md)

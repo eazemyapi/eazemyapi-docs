@@ -71,7 +71,7 @@ https://eazemyapi.com
 
 ## Official Website
 
-For support contact@eazemyapi.com
+* For support contact@eazemyapi.com
 ---
 
 ## Community

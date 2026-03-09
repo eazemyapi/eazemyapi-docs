@@ -1,0 +1,82 @@
+# API Authentication
+
+All API requests to EazeMyAPI must include the **API signature key** in the request header.
+
+This key verifies that the request is authorized to access your project’s APIs.
+
+---
+
+## Required Header
+
+Every API request must include the following header:
+
+```
+X-API-SIGNATURE: <secret-key>
+```
+
+---
+
+## Where to Find the Secret Key
+
+You can find your API signature key inside the dashboard.
+
+Steps:
+
+1. Open your **Project**
+2. Go to **Settings**
+3. Copy the **API Secret Key**
+
+Example location:
+
+```
+Project → Settings → API Signature Key
+```
+
+Keep this key secure. Do not expose it publicly.
+
+---
+
+# Example Request
+
+Example API call with the required header.
+
+```javascript
+fetch("https://api.eazemyapi.com/users", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    "X-API-SIGNATURE": "your-secret-key"
+  }
+})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+});
+```
+
+---
+
+# Example Using cURL
+
+```bash
+curl https://api.eazemyapi.com/users \
+  -H "X-API-SIGNATURE: your-secret-key"
+```
+
+---
+
+# Security Best Practices
+
+* Never expose the secret key in public repositories
+* Do not store the key directly inside frontend code
+* Use environment variables to store API keys
+* Rotate keys if they are compromised
+
+---
+
+# Important Note
+
+The API signature key gives access to your project APIs.
+Anyone with this key can perform API operations, so it should be handled securely.
+
+If your application requires user-level security, you should implement authentication and access control mechanisms.

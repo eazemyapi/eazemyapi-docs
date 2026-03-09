@@ -4,6 +4,8 @@ EazeMyAPI includes an **AI backend generator** that allows you to create a compl
 
 Instead of manually designing tables and APIs, the AI automatically creates the backend structure for you.
 
+Describe your app → AI creates database → APIs ready instantly.
+
 ---
 
 ## Step 1 — Open the AI Generator

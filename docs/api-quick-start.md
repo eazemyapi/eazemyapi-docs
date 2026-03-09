@@ -1,0 +1,173 @@
+# API Quick Start
+
+This guide shows how to start using **EazeMyAPI APIs in less than 5 minutes**.
+
+You will learn how to:
+
+* Create a project
+* Generate APIs
+* Call APIs from your application
+
+---
+
+# Step 1 — Create a Project
+
+Login to your dashboard.
+
+Open:
+
+```
+Dashboard → Create Project
+```
+
+Enter your project name.
+
+Example:
+
+```
+MyStartupBackend
+```
+
+Each project has its own database and APIs.
+
+---
+
+# Step 2 — Create a Table
+
+Inside your project, create a table.
+
+Example table:
+
+```
+users
+```
+
+Add fields:
+
+```
+id
+name
+email
+created_at
+```
+
+Save the table.
+
+EazeMyAPI will automatically generate APIs for this table.
+
+---
+
+# Step 3 — Get Your API Secret Key
+
+Every API request requires your **API Signature Key**.
+
+You can find it here:
+
+```
+Project → Settings → API Signature Key
+```
+
+Example:
+
+```
+X-API-SIGNATURE: your-secret-key
+```
+
+Keep this key secure.
+
+---
+
+# Step 4 — Call Your First API
+
+Example request to fetch users.
+
+### JavaScript Example
+
+```javascript
+fetch("https://api.eazemyapi.com/users", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    "X-API-SIGNATURE": "your-secret-key"
+  }
+})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+});
+```
+
+This request retrieves all records from the **users table**.
+
+---
+
+# Step 5 — Create a Record
+
+Example request to create a new user.
+
+```javascript
+fetch("https://api.eazemyapi.com/users", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "X-API-SIGNATURE": "your-secret-key"
+  },
+  body: JSON.stringify({
+    name: "John",
+    email: "john@example.com"
+  })
+})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+});
+```
+
+This creates a new user in the database.
+
+---
+
+# Example Using cURL
+
+You can also test APIs using cURL or Postman.
+
+```
+curl https://api.eazemyapi.com/users \
+  -H "X-API-SIGNATURE: your-secret-key"
+```
+
+---
+
+# What Happens Next?
+
+After connecting your API, you can:
+
+* Integrate with React or Next.js
+* Build mobile apps
+* Create SaaS products
+* Launch MVP backends quickly
+
+---
+
+# Recommended Next Steps
+
+Continue reading the documentation:
+
+## Documentation
+
+* [Getting Started](docs/getting-started.md)
+  Learn how to create your first backend project.
+
+* [Creating Tables](docs/create-tables.md)
+  Define database tables and structure your data.
+
+* [Authentication](docs/authentication.md)
+  Secure your APIs using the API signature key.
+
+* [Custom Queries](docs/custom-queries.md)
+  Execute advanced queries and build complex logic.
+
+* [Frontend Integration](docs/frontend-integration.md)
+  Connect EazeMyAPI APIs with React, Flutter, or mobile apps.
+
+These guides will help you build a complete backend with EazeMyAPI.

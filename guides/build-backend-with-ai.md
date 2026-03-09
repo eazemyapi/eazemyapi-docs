@@ -1,0 +1,177 @@
+# Build Backend with AI in 30 Seconds
+
+Modern applications require a backend with database tables, APIs, and authentication.
+Traditionally this requires backend development, server setup, and deployment.
+
+With **EazeMyAPI AI**, you can generate a complete backend in seconds.
+
+Just describe your application and the AI will create:
+
+* Database tables
+* Table fields
+* API endpoints
+
+No backend coding required.
+
+If you are new to the platform:
+
+[Getting Started](../docs/getting-started.md)
+
+---
+
+# Step 1 — Open AI Project Generator
+
+Login to the EazeMyAPI dashboard.
+
+Create a new project using the **AI generator**.
+
+Guide:
+
+[Creating Your First Project](../docs/create-project.md)
+
+---
+
+# Step 2 — Describe Your Application
+
+Write a short description of your backend.
+
+Example prompt:
+
+```
+Create a backend for a task management app with users, projects and tasks.
+```
+
+Another example:
+
+```
+Build a backend for an e-commerce app with users, products and orders.
+```
+
+---
+
+# Step 3 — AI Generates Backend
+
+EazeMyAPI AI automatically creates:
+
+* Database tables
+* Fields for each table
+* Relationships between tables
+* REST APIs for each table
+
+Example generated structure:
+
+Users
+Projects
+Tasks
+
+You can modify or extend the schema anytime.
+
+If you want to understand tables better:
+
+[Creating Tables](../docs/create-tables.md)
+
+---
+
+# Step 4 — APIs Are Ready Instantly
+
+Once the backend is generated, APIs are immediately available.
+
+Example endpoints:
+
+```
+GET /tasks
+POST /tasks
+PUT /tasks/{id}
+DELETE /tasks/{id}
+```
+
+Learn how APIs are generated:
+
+[Generating APIs](../docs/generate-api.md)
+
+---
+
+# Step 5 — Secure Your APIs
+
+All requests require the API signature key.
+
+Example header:
+
+```
+X-API-SIGNATURE: your-secret-key
+```
+
+Authentication guide:
+
+[Authentication](../docs/authentication.md)
+
+---
+
+# Step 6 — Connect Your Frontend
+
+You can connect the generated APIs with any frontend framework.
+
+Supported platforms:
+
+* React
+* Next.js
+* Flutter
+* Android
+* iOS
+
+Integration guide:
+
+[Frontend Integration](../docs/frontend-integration.md)
+
+---
+
+# Example API Request
+
+```javascript
+fetch("https://api.eazemyapi.com/tasks", {
+  headers: {
+    "X-API-SIGNATURE": "your-secret-key"
+  }
+})
+```
+
+Your backend is now fully functional.
+
+---
+
+# Why Developers Use AI Backend Generation
+
+Traditional backend development requires:
+
+* Designing database schema
+* Writing backend code
+* Creating API routes
+* Deploying servers
+
+With EazeMyAPI AI, the process becomes:
+
+```
+Describe idea → AI generates backend → APIs ready
+```
+
+This makes it ideal for:
+
+* Startup MVPs
+* Mobile apps
+* SaaS platforms
+* Rapid prototypes
+
+---
+
+# Next Steps
+
+Once your backend is ready, you can extend it with:
+
+* Custom database queries
+* Advanced API logic
+* Frontend integrations
+
+Continue learning:
+
+* [Writing Custom Queries](../docs/custom-queries.md)
+* [Generate REST APIs Without Coding](generate-rest-api.md)

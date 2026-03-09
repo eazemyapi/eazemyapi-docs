@@ -1,75 +1,119 @@
 # Getting Started with EazeMyAPI
 
-This guide will help you create your first backend using EazeMyAPI.
+EazeMyAPI allows you to create a complete backend for your application without writing server code.
 
-## Step 1 — Create an Account
+You can either:
+
+* Generate your backend **using AI**
+* Build your backend **manually by creating tables**
+
+This guide shows the fastest way to start using **AI-powered backend generation**.
+
+---
+
+# Option 1 — Create Backend with AI (Recommended)
+
+The easiest way to start is using the **AI Project Generator**.
+
+Instead of manually creating tables, simply describe your application idea and EazeMyAPI will generate the backend automatically.
+
+---
+
+## Step 1 — Login to Dashboard
 
 Visit:
 
+```
 https://eazemyapi.com
+```
 
-Sign up and log in to your dashboard.
+Login to your account.
 
 ---
 
-## Step 2 — Create a Project
+## Step 2 — Open AI Project Generator
 
-Click **Create Project** and give your project a name.
+Click:
+
+```
+Create Project → Generate with AI
+```
+
+---
+
+## Step 3 — Describe Your Application
+
+Write a short description of the backend you want to build.
 
 Example:
 
-MyStartupApp
-
-Each project contains its own database tables and APIs.
+```
+Create a backend for a task management app where users can create projects and tasks.
+```
 
 ---
 
-## Step 3 — Create Database Tables
+## Step 4 — AI Generates Backend
 
-Inside your project, create tables such as:
+EazeMyAPI will automatically generate:
+
+* Database tables
+* Table fields
+* API endpoints
+
+Example generated structure:
 
 Users
-Products
-Orders
+Projects
+Tasks
 
-Define fields for each table.
-
-Example:
-
-Users Table
-
-* id
-* name
-* email
-* password
-* created_at
-
-Once the table is saved, EazeMyAPI automatically prepares the backend structure.
+Each table will be connected and ready for use.
 
 ---
 
-## Step 4 — Generate APIs
+## Step 5 — APIs Are Ready
 
-After creating tables, EazeMyAPI instantly generates APIs such as:
+Once the backend is generated, EazeMyAPI automatically creates REST APIs.
 
-GET /users
-POST /users
-PUT /users
-DELETE /users
+Example endpoints:
 
-You can immediately start using these APIs.
+```
+GET /tasks
+POST /tasks
+PUT /tasks/{id}
+DELETE /tasks/{id}
+```
+
+Your backend is now ready.
 
 ---
 
-## Step 5 — Connect Your Frontend
+# Option 2 — Manual Backend Creation
 
-You can connect your APIs with:
+You can also build your backend manually.
+
+Steps:
+
+1. Create a project
+2. Create database tables
+3. Generate APIs automatically
+
+Continue reading:
+
+[Creating Your First Project](create-project.md)
+
+---
+
+# Connect Your Frontend
+
+Once your backend is ready, you can connect it with:
 
 * React
 * Next.js
 * Flutter
 * Android
 * iOS
-* Web apps
 
-Your backend is ready in minutes.
+Continue to:
+
+[Frontend Integration](frontend-integration.md)

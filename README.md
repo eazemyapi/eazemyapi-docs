@@ -53,13 +53,28 @@ EazeMyAPI is ideal for:
 
 ## Documentation Sections
 
-* Getting Started
-* Creating Your First Project
-* Creating Tables
-* Generating APIs
-* Authentication
-* Writing Custom Queries
-* Integrating with Frontend
+## Documentation
+
+* [Getting Started](docs/getting-started.md)
+  Learn how to start using EazeMyAPI.
+
+* [Creating Your First Project](docs/create-project.md)
+  Set up your backend environment.
+
+* [Creating Tables](docs/create-tables.md)
+  Define your database structure.
+
+* [Generating APIs](docs/generate-api.md)
+  Automatically create REST APIs.
+
+* [Authentication](docs/authentication.md)
+  Secure your API requests.
+
+* [Writing Custom Queries](docs/custom-queries.md)
+  Execute advanced database queries.
+
+* [Integrating with Frontend](docs/frontend-integration.md)
+  Connect your APIs with web or mobile apps.
 
 ---
 

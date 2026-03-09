@@ -2,6 +2,10 @@
 
 EazeMyAPI is a **no-code backend builder** that allows developers and startups to create production-ready APIs instantly without writing backend server code.
 
+AI-powered backend builder for startups.
+
+Describe your app → AI creates database → APIs ready instantly.
+
 With EazeMyAPI, you can:
 
 * Create projects

@@ -1,0 +1,180 @@
+# Generate REST APIs Without Coding
+
+Building REST APIs traditionally requires backend development, server configuration, and deployment setup.
+
+EazeMyAPI allows developers to generate REST APIs instantly from database tables — and now even faster using **AI-powered backend generation**.
+
+If you are new to EazeMyAPI, start here:
+
+[Getting Started](../docs/getting-started.md)
+
+---
+
+# Traditional API Development
+
+Typical backend workflow:
+
+* Create database
+* Write backend code
+* Build API routes
+* Handle validation
+* Deploy server
+
+This process can take **days or weeks**.
+
+---
+
+# Generate APIs with AI (Fastest Way)
+
+EazeMyAPI includes an **AI backend generator** that can create database tables and APIs automatically.
+
+Instead of manually designing tables, simply describe your application.
+
+Example prompt:
+
+```
+Create a backend for an e-commerce app with users, products, orders and payments.
+```
+
+The AI will generate:
+
+* Users table
+* Products table
+* Orders table
+* Payments table
+
+Each table will include appropriate fields and relationships.
+
+APIs are automatically generated for every table.
+
+To learn more:
+
+[Getting Started with AI](../docs/getting-started.md)
+
+---
+
+# Manual API Generation
+
+You can also generate APIs manually by creating tables.
+
+### Step 1 — Create a Project
+
+Create a backend workspace for your application.
+
+Guide:
+
+[Creating Your First Project](../docs/create-project.md)
+
+---
+
+### Step 2 — Create Tables
+
+Define the data structure for your application.
+
+Example table:
+
+```
+products
+```
+
+Fields:
+
+```
+id
+name
+price
+created_at
+```
+
+Detailed guide:
+
+[Creating Tables](../docs/create-tables.md)
+
+---
+
+### Step 3 — APIs Generated Automatically
+
+Once tables are created, EazeMyAPI generates REST APIs instantly.
+
+Example endpoints:
+
+```
+GET /products
+POST /products
+GET /products/{id}
+PUT /products/{id}
+DELETE /products/{id}
+```
+
+Learn more:
+
+[Generating APIs](../docs/generate-api.md)
+
+---
+
+# API Authentication
+
+Every request must include your API signature key.
+
+Example header:
+
+```
+X-API-SIGNATURE: your-secret-key
+```
+
+Authentication guide:
+
+[Authentication](../docs/authentication.md)
+
+---
+
+# API Example
+
+```javascript
+fetch("https://api.eazemyapi.com/products", {
+  headers: {
+    "X-API-SIGNATURE": "your-secret-key"
+  }
+})
+```
+
+The API returns JSON data that your application can use.
+
+---
+
+# Advantages
+
+* Instant backend setup
+* AI-powered backend generation
+* No server maintenance
+* Rapid MVP development
+* Simple API structure
+
+If you want to launch a startup backend quickly, see:
+
+[Build MVP Backend Guide](build-mvp-backend.md)
+
+---
+
+# Next Steps
+
+You can now connect your backend APIs to frontend frameworks like:
+
+* React
+* Next.js
+* Flutter
+* Vue
+
+Frontend integration guide:
+
+[Frontend Integration](../docs/frontend-integration.md)
+
+---
+
+# Advanced Backend Logic
+
+For advanced database operations, filtering, or analytics queries, use custom queries.
+
+Learn more:
+
+[Writing Custom Queries](../docs/custom-queries.md)

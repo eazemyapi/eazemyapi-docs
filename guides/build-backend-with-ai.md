@@ -1,5 +1,7 @@
 # Build Backend with AI in 30 Seconds
 
+Describe your app → AI creates database → APIs ready instantly.
+
 Modern applications require a backend with database tables, APIs, and authentication.
 Traditionally this requires backend development, server setup, and deployment.
 

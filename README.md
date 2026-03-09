@@ -80,6 +80,7 @@ EazeMyAPI is ideal for:
 * [Integrating with Frontend](docs/frontend-integration.md)
   Connect your APIs with web or mobile apps.
 
+* [API Reference](docs/api-reference.md)
 ---
 
 ## Official Website

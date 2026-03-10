@@ -1,0 +1,309 @@
+---
+title: Field Types
+description: Learn about supported database field types in EazeMyAPI and how they are used when generating APIs.
+---
+
+# Field Types
+
+When creating tables in EazeMyAPI, each field must have a **data type**.  
+The data type defines what kind of data the field can store.
+
+Choosing the correct field type ensures:
+
+- Better data validation
+- Efficient database queries
+- Accurate API responses
+
+---
+
+# Supported Field Types
+
+EazeMyAPI currently supports the following field types.
+
+---
+
+## TEXT
+
+The **TEXT** type stores short text values.
+
+Common uses:
+
+- names
+- titles
+- usernames
+- city names
+
+Example:
+
+```
+name: "Romit"
+```
+
+Example API response:
+
+```json
+{
+  "name": "Romit"
+}
+```
+
+---
+
+## NUMBER
+
+The **NUMBER** type stores integer numbers.
+
+Common uses:
+
+- age
+- quantity
+- counts
+- IDs
+
+Example:
+
+```
+age: 38
+```
+
+Example API response:
+
+```json
+{
+  "age": 38
+}
+```
+
+---
+
+## PARAGRAPH
+
+The **PARAGRAPH** type stores long text content.
+
+Common uses:
+
+- descriptions
+- blog content
+- notes
+- comments
+
+Example:
+
+```json
+{
+  "bio": "Romit is the founder of EazeMyAPI and focuses on building developer tools that simplify backend development."
+}
+```
+
+---
+
+## DECIMAL
+
+The **DECIMAL** type stores numbers with decimal values.
+
+Common uses:
+
+- prices
+- ratings
+- percentages
+- measurements
+
+Example:
+
+```json
+{
+  "rating": 4.8
+}
+```
+
+---
+
+## DATE
+
+The **DATE** type stores a calendar date.
+
+Common uses:
+
+- birth date
+- event date
+- joining date
+
+Example:
+
+```json
+{
+  "birth_date": "1988-05-12"
+}
+```
+
+---
+
+## DATETIME
+
+The **DATETIME** type stores both date and time.
+
+Common uses:
+
+- created_at
+- updated_at
+- event timestamps
+
+Example:
+
+```json
+{
+  "created_at": "2026-03-10T10:30:00Z"
+}
+```
+
+---
+
+## PASSWORD
+
+The **PASSWORD** type stores secure password values.
+
+Passwords are encrypted before being stored.
+
+Example:
+
+```json
+{
+  "password": "********"
+}
+```
+
+---
+
+## EMAIL
+
+The **EMAIL** type stores valid email addresses.
+
+Common uses:
+
+- user login
+- account registration
+- contact information
+
+Example:
+
+```json
+{
+  "email": "rm@eazemyapi.com"
+}
+```
+
+---
+
+## PHONE
+
+The **PHONE** type stores phone numbers.
+
+Example:
+
+```json
+{
+  "phone": "+91 9876543210"
+}
+```
+
+---
+
+## BOOLEAN
+
+The **BOOLEAN** type stores true or false values.
+
+Common uses:
+
+- active status
+- verification status
+- feature flags
+
+Example:
+
+```json
+{
+  "is_active": true
+}
+```
+
+---
+
+# Example Table
+
+Example **users** table:
+
+| Field | Type |
+|------|------|
+| id | NUMBER |
+| name | TEXT |
+| email | EMAIL |
+| phone | PHONE |
+| bio | PARAGRAPH |
+| is_active | BOOLEAN |
+| created_at | DATETIME |
+
+Example record:
+
+```json
+{
+  "id": 1,
+  "name": "Romit",
+  "email": "rm@eazemyapi.com",
+  "phone": "+91 9876543210",
+  "bio": "Founder of EazeMyAPI",
+  "is_active": true
+}
+```
+
+---
+
+# Example API Request
+
+After creating a table, EazeMyAPI automatically generates APIs.
+
+Example endpoint:
+
+```
+https://api.eazemyapi.com/soche-india/v2/get-single-user
+```
+
+Example request:
+
+```bash
+curl https://api.eazemyapi.com/soche-india/v2/get-single-user?id=1
+```
+
+Example response:
+
+```json
+{
+  "id": 1,
+  "name": "Romit",
+  "email": "rm@eazemyapi.com",
+  "phone": "+91 9876543210",
+  "is_active": true
+}
+```
+
+---
+
+# Best Practices
+
+When choosing field types:
+
+- Use **TEXT** for short text
+- Use **PARAGRAPH** for long content
+- Use **NUMBER** for integers
+- Use **DECIMAL** for prices or ratings
+- Use **BOOLEAN** for true/false values
+- Use **DATETIME** for timestamps
+
+Correct field types make your APIs faster and easier to use.
+
+---
+
+# Next Step
+
+Learn how database schema works in EazeMyAPI.
+
+[Database Schema](/docs/database-schema)

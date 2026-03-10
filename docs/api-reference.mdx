@@ -17,13 +17,13 @@ Guide:
 All API requests follow this format:
 
 ```
-https://api.eazemyapi.com/{table-name}
+https://api.eazemyapi.com/{project}/{version}/{table-name}
 ```
 
 Example:
 
 ```
-https://api.eazemyapi.com/users
+https://api.eazemyapi.com/ema/v1/users
 ```
 
 ---
@@ -79,7 +79,7 @@ Guide:
 ### Get Users
 
 ```javascript
-fetch("https://api.eazemyapi.com/users", {
+fetch("https://api.eazemyapi.com/ema/v1/users", {
   headers: {
     "X-API-SIGNATURE": "your-secret-key"
   }
@@ -91,7 +91,7 @@ fetch("https://api.eazemyapi.com/users", {
 # Create Record
 
 ```javascript
-fetch("https://api.eazemyapi.com/users", {
+fetch("https://api.eazemyapi.com/ema/v1/users", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -109,7 +109,7 @@ fetch("https://api.eazemyapi.com/users", {
 # Update Record
 
 ```javascript
-fetch("https://api.eazemyapi.com/users/1", {
+fetch("https://api.eazemyapi.com/ema/v1/users/1", {
   method: "PUT",
   headers: {
     "Content-Type": "application/json",
@@ -126,7 +126,7 @@ fetch("https://api.eazemyapi.com/users/1", {
 # Delete Record
 
 ```javascript
-fetch("https://api.eazemyapi.com/users/1", {
+fetch("https://api.eazemyapi.com/ema/v1/users/1", {
   method: "DELETE",
   headers: {
     "X-API-SIGNATURE": "your-secret-key"
@@ -145,8 +145,8 @@ Example:
 ```
 {
   "id": 1,
-  "name": "John",
-  "email": "john@example.com"
+  "name": "Romit",
+  "email": "rm@eazemyapi.com"
 }
 ```
 

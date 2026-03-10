@@ -1,10 +1,10 @@
 {
   "name": "EazeMyAPI Documentation",
-  "favicon": "/favicon.ico",
+  "favicon": "favicon.ico",
   "colors": {
     "primary": "#2563eb",
     "light": "#2563eb",
-    "dark": "#2563eb"
+    "dark": "#1e40af"
   },
   "navigation": [
     {

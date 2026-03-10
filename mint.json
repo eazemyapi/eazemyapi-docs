@@ -19,6 +19,13 @@
 
   "navigation": [
     {
+      "group": "Introduction",
+      "pages": [
+        "docs/what-is-eazemyapi",
+        "docs/how-eazemyapi-works"
+      ]
+    },
+    {
       "group": "Getting Started",
       "pages": [
         "docs/getting-started",
@@ -31,9 +38,18 @@
       ]
     },
     {
+      "group": "Core Concepts",
+      "pages": [
+        "docs/database-schema",
+        "docs/field-types"
+      ]
+    },
+    {
       "group": "API",
       "pages": [
         "docs/api-quick-start",
+        "docs/api-endpoints",
+        "docs/response-format",
         "docs/api-reference"
       ]
     },

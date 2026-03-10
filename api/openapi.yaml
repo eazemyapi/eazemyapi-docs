@@ -1,0 +1,160 @@
+openapi: 3.0.3
+info:
+  title: EazeMyAPI
+  description: >
+    EazeMyAPI is an AI-powered backend builder that allows developers
+    to create database tables and generate REST APIs instantly
+    without writing backend code.
+
+  version: 1.0.0
+  contact:
+    name: EazeMyAPI Support
+    url: https://eazemyapi.com
+    email: support@eazemyapi.com
+
+servers:
+  - url: https://app.eazemyapi.com
+    description: Production API Server
+
+security:
+  - ApiKeyAuth: []
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-SIGNATURE
+
+  schemas:
+    Record:
+      type: object
+      additionalProperties: true
+      example:
+        id: 1
+        name: "Romit Mevadaa"
+        email: "rm@eazemyapi.com"
+        created_at: "2026-03-10T12:00:00Z"
+
+paths:
+
+  /{table}:
+    get:
+      summary: Get records
+      description: Retrieve records from a table.
+      parameters:
+        - name: table
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Name of the database table
+
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Record"
+
+    post:
+      summary: Create record
+      description: Insert a new record into a table.
+      parameters:
+        - name: table
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Name of the database table
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              example:
+              name: "Romit Mevadaa"
+              email: "rm@eazemyapi.com"
+
+      responses:
+        "200":
+          description: Record created successfully
+
+  /{table}/{id}:
+    get:
+      summary: Get record by ID
+      description: Retrieve a specific record by ID.
+      parameters:
+        - name: table
+          in: path
+          required: true
+          schema:
+            type: string
+
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Record"
+
+    put:
+      summary: Update record
+      description: Update an existing record by ID.
+      parameters:
+        - name: table
+          in: path
+          required: true
+          schema:
+            type: string
+
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+
+      responses:
+        "200":
+          description: Record updated successfully
+
+    delete:
+      summary: Delete record
+      description: Delete a record by ID.
+      parameters:
+        - name: table
+          in: path
+          required: true
+          schema:
+            type: string
+
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        "200":
+          description: Record deleted successfully

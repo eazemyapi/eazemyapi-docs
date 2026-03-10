@@ -1,0 +1,291 @@
+---
+
+title: How EazeMyAPI Works
+description: Understand how EazeMyAPI generates backend APIs automatically using database tables or AI-powered backend generation.
+----------------------------------------------------------------------------------------------------------------------------------
+
+# How EazeMyAPI Works
+
+EazeMyAPI allows developers to build backend systems instantly **without writing backend server code**.
+
+Instead of manually creating databases, writing APIs, configuring authentication, and deploying backend infrastructure, EazeMyAPI automates the entire backend workflow.
+
+Developers can either:
+
+* Create database tables manually
+* Use **AI to generate backend structures automatically**
+
+If you are new to EazeMyAPI, start with the guide:
+
+<a href="/docs/getting-started">Getting Started</a>
+
+---
+
+# Traditional Backend Development
+
+In a traditional development environment, building a backend requires several steps:
+
+1. Designing the database schema
+2. Creating backend server logic
+3. Writing REST API endpoints
+4. Implementing authentication and security
+5. Deploying backend infrastructure
+
+This process can take **days or weeks** depending on the complexity of the application.
+
+EazeMyAPI simplifies backend development so developers can move from **idea to working backend within minutes**.
+
+---
+
+# The EazeMyAPI Workflow
+
+The typical backend creation flow looks like this:
+
+```
+Create Project
+     ↓
+Define Database Tables
+     ↓
+Generate APIs
+     ↓
+Secure APIs
+     ↓
+Connect Frontend
+```
+
+Each step is explained below.
+
+---
+
+# 1. Create a Project
+
+A **project** represents a backend application.
+
+Each project contains:
+
+* Database tables
+* Generated APIs
+* Authentication configuration
+* Custom queries
+
+Every backend system begins by creating a project.
+
+Follow the guide:
+
+<a href="/docs/create-project">Create Project</a>
+
+---
+
+# 2. Define Database Tables
+
+After creating a project, you define your application's data structure using tables.
+
+Example table:
+
+| Field      | Type    |
+| ---------- | ------- |
+| id         | Integer |
+| name       | String  |
+| email      | String  |
+| created_at | Date    |
+
+Tables represent the core data structure of your backend.
+
+Learn more:
+
+<a href="/docs/create-tables">Create Tables</a>
+
+---
+
+# 3. APIs Are Generated Automatically
+
+Once database tables are created, EazeMyAPI automatically generates REST APIs.
+
+Example generated endpoints:
+
+```
+GET /users
+POST /users
+PUT /users/{id}
+DELETE /users/{id}
+```
+
+These APIs allow frontend applications to interact with the backend.
+
+No manual backend coding is required.
+
+Learn more:
+
+<a href="/docs/generate-api">Generate API</a>
+
+---
+
+# 4. Secure APIs with Authentication
+
+Every EazeMyAPI project includes authentication to protect backend resources.
+
+Developers use API keys to authorize requests.
+
+Example API request:
+
+```
+curl https://api.eazemyapi.com/v1/users \
+  -H "x-api-key: YOUR_API_KEY"
+```
+
+Authentication ensures only authorized clients can access the APIs.
+
+Learn more:
+
+<a href="/docs/authentication">Authentication</a>
+
+---
+
+# 5. Connect Your Frontend Application
+
+After APIs are generated, frontend applications can connect directly to them.
+
+Example using JavaScript:
+
+```javascript
+fetch("https://api.eazemyapi.com/v1/users", {
+  headers: {
+    "x-api-key": "YOUR_API_KEY"
+  }
+})
+.then(res => res.json())
+.then(data => console.log(data))
+```
+
+EazeMyAPI works with any frontend framework including:
+
+* React
+* Next.js
+* Flutter
+* Vue
+* Angular
+* Android
+* iOS
+
+Learn more:
+
+<a href="/docs/frontend-integration">Frontend Integration</a>
+
+---
+
+# AI Backend Generation
+
+EazeMyAPI also includes **AI-powered backend generation**.
+
+Instead of manually designing your backend, you can describe your application idea using natural language.
+
+Example prompt:
+
+```
+Create a backend for a task management app with users, tasks, and task status.
+```
+
+The AI automatically generates:
+
+* Database tables
+* Field structures
+* Relationships between tables
+* REST API endpoints
+
+This dramatically speeds up backend creation.
+
+---
+
+# Example AI Generated Schema
+
+### Users Table
+
+| Field      | Type    |
+| ---------- | ------- |
+| id         | Integer |
+| name       | String  |
+| email      | String  |
+| created_at | Date    |
+
+### Tasks Table
+
+| Field       | Type    |
+| ----------- | ------- |
+| id          | Integer |
+| title       | String  |
+| description | Text    |
+| status      | String  |
+| user_id     | Integer |
+
+Once the schema is generated, APIs are automatically created.
+
+Example endpoints:
+
+```
+GET /tasks
+POST /tasks
+PUT /tasks/{id}
+DELETE /tasks/{id}
+```
+
+Developers can move from **idea to working backend within minutes**.
+
+---
+
+# AI + Developer Control
+
+Although AI helps generate the initial backend structure, developers always maintain full control.
+
+You can:
+
+* Modify tables
+* Add new fields
+* Define relationships
+* Write custom database queries
+* Extend backend logic
+
+Learn more:
+
+<a href="/docs/custom-queries">Custom Queries</a>
+
+---
+
+# Visual Workflow
+
+The complete EazeMyAPI development workflow:
+
+```
+Idea
+ ↓
+Create Project
+ ↓
+Define Tables OR Use AI
+ ↓
+EazeMyAPI Generates APIs
+ ↓
+Secure APIs with Authentication
+ ↓
+Connect Frontend Application
+```
+
+---
+
+# When to Use EazeMyAPI
+
+EazeMyAPI is useful when you want to:
+
+* Build startup MVPs quickly
+* Prototype new product ideas
+* Generate backend APIs instantly
+* Avoid managing backend infrastructure
+* Focus more on building product features
+
+Instead of spending weeks building backend systems, developers can launch working backends within minutes.
+
+---
+
+# Next Step
+
+Start building your backend now.
+
+<a href="/docs/getting-started">Go to Getting Started</a>

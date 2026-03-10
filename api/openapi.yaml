@@ -1,48 +1,282 @@
-{
-  "name": "EazeMyAPI Documentation",
-  "favicon": "favicon.ico",
+openapi: 3.0.3
 
-  "colors": {
-    "primary": "#2563eb",
-    "light": "#2563eb",
-    "dark": "#1e40af"
-  },
+info:
+  title: EazeMyAPI API
+  description: |
+    EazeMyAPI allows developers to generate backend APIs instantly without writing server code.
 
-  "openapi": "api/openapi.yaml",
+    Developers can describe their application, generate database tables automatically,
+    and start using production-ready APIs immediately.
 
-  "navigation": [
-    {
-      "group": "Getting Started",
-      "pages": [
-        "docs/getting-started",
-        "docs/create-project",
-        "docs/create-tables",
-        "docs/generate-api",
-        "docs/authentication",
-        "docs/custom-queries",
-        "docs/frontend-integration"
-      ]
-    },
-    {
-      "group": "API",
-      "pages": [
-        "docs/api-quick-start",
-        "docs/api-reference"
-      ]
-    },
-    {
-      "group": "Guides",
-      "pages": [
-        "guides/build-backend-with-ai",
-        "guides/build-backend-without-coding",
-        "guides/build-mvp-backend",
-        "guides/build-saas-mvp-in-48-hours",
-        "guides/backend-architecture-for-startup-mvp",
-        "guides/generate-rest-api",
-        "guides/firebase-alternative",
-        "guides/supabase-vs-firebase-vs-eazemyapi",
-        "guides/top-backend-tools-for-startups-2026"
-      ]
-    }
-  ]
-}
+    Ideal for startups, MVP development, rapid backend creation, and scalable applications.
+
+  version: 1.0.0
+  contact:
+    name: EazeMyAPI
+    url: https://eazemyapi.com
+    email: support@eazemyapi.com
+
+servers:
+  - url: https://api.eazemyapi.com/v1
+    description: Production API
+
+tags:
+  - name: Authentication
+    description: API authentication endpoints
+  - name: Projects
+    description: Manage backend projects
+  - name: Tables
+    description: Manage database tables
+  - name: Records
+    description: CRUD operations for table records
+  - name: Query
+    description: Execute custom database queries
+
+paths:
+
+  /auth/login:
+    post:
+      summary: Login and get API token
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+
+  /projects:
+    get:
+      summary: List all projects
+      tags:
+        - Projects
+      security:
+        - ApiKeyAuth: []
+      responses:
+        "200":
+          description: List of projects
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  projects:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Project'
+
+    post:
+      summary: Create new project
+      tags:
+        - Projects
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProject'
+      responses:
+        "201":
+          description: Project created successfully
+
+  /tables:
+    get:
+      summary: List tables
+      tags:
+        - Tables
+      security:
+        - ApiKeyAuth: []
+      responses:
+        "200":
+          description: List of tables
+
+    post:
+      summary: Create new table
+      tags:
+        - Tables
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - fields
+              properties:
+                name:
+                  type: string
+                fields:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      type:
+                        type: string
+      responses:
+        "201":
+          description: Table created successfully
+
+  /records/{table}:
+    get:
+      summary: Fetch records from table
+      tags:
+        - Records
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: table
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of records
+
+    post:
+      summary: Insert record
+      tags:
+        - Records
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: table
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        "201":
+          description: Record inserted
+
+  /records/{table}/{id}:
+    put:
+      summary: Update record
+      tags:
+        - Records
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: table
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        "200":
+          description: Record updated
+
+    delete:
+      summary: Delete record
+      tags:
+        - Records
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: table
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Record deleted
+
+  /query:
+    post:
+      summary: Execute raw database query
+      tags:
+        - Query
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+              properties:
+                query:
+                  type: string
+      responses:
+        "200":
+          description: Query executed successfully
+
+components:
+
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+
+  schemas:
+
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        created_at:
+          type: string
+
+    CreateProject:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string

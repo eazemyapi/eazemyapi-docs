@@ -56,8 +56,10 @@
   "footer": {
     "socials": {
       "website": "https://eazemyapi.com",
-      "twitter": "https://twitter.com",
-      "github": "https://github.com"
+      "x": "https://x.com/eazemyapi",
+      "github": "https://github.com/eazemyapi",
+      "linkedin": "https://www.linkedin.com/showcase/eazemyapi",
+      "instagram": "https://www.instagram.com/eazemyapi"
     }
   }
 }

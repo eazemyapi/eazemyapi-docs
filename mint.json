@@ -1,0 +1,38 @@
+{
+  "name": "EazeMyAPI Documentation",
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "docs/getting-started",
+        "docs/create-project",
+        "docs/create-tables",
+        "docs/generate-api",
+        "docs/authentication",
+        "docs/custom-queries",
+        "docs/frontend-integration"
+      ]
+    },
+    {
+      "group": "API",
+      "pages": [
+        "docs/api-quick-start",
+        "docs/api-reference"
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "guides/build-backend-with-ai",
+        "guides/build-backend-without-coding",
+        "guides/build-mvp-backend",
+        "guides/build-saas-mvp-in-48-hours",
+        "guides/backend-architecture-for-startup-mvp",
+        "guides/generate-rest-api",
+        "guides/firebase-alternative",
+        "guides/supabase-vs-firebase-vs-eazemyapi",
+        "guides/top-backend-tools-for-startups-2026"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+---
+title: API Endpoints
+description: Learn how API endpoints are generated in EazeMyAPI and how to interact with your backend using REST APIs.
+---
+
+# API Endpoints
+
+EazeMyAPI automatically generates REST API endpoints for every table created in your project.
+
+These endpoints allow your applications to perform standard **CRUD operations**:
+
+- Create data
+- Read data
+- Update data
+- Delete data
+
+No backend server code is required.
+
+---
+
+# Endpoint Structure
+
+All EazeMyAPI endpoints follow a consistent structure.
+
+```
+https://api.eazemyapi.com/{project-name}/{version}/{endpoint}
+```
+
+Example:
+
+```
+https://api.eazemyapi.com/soche-india/v2/get-single-user
+```
+
+Components:
+
+| Part | Description |
+|-----|-------------|
+| api.eazemyapi.com | API server |
+| project-name | Your project identifier |
+| version | API version |
+| endpoint | API action |
+
+---
+
+# Common Endpoint Types
+
+When you create a table, EazeMyAPI automatically generates endpoints for common operations.
+
+---
+
+## Get All Records
+
+Retrieve all records from a table.
+
+Example endpoint:
+
+```
+https://api.eazemyapi.com/soche-india/v2/get-users
+```
+
+Example request:
+
+```bash
+curl https://api.eazemyapi.com/soche-india/v2/get-users \
+  -H "X-API-SIGNATURE: your-secret-key"
+```
+
+Example response:
+
+```json
+{
+  "success": true,
+  "message": "Data found.",
+  "data": [
+    {
+      "id": 1,
+      "name": "Romit",
+      "email": "rm@eazemyapi.com"
+    }
+  ]
+}
+```
+
+---
+
+## Get Single Record
+
+Retrieve one record using an identifier.
+
+Example endpoint:
+
+```
+https://api.eazemyapi.com/soche-india/v2/get-single-user
+```
+
+Example request:
+
+```bash
+curl https://api.eazemyapi.com/soche-india/v2/get-single-user?id=1 \
+  -H "X-API-SIGNATURE: your-secret-key"
+```
+
+Example response:
+
+```json
+{
+  "success": true,
+  "message": "Data found.",
+  "data": {
+    "id": 1,
+    "name": "Romit",
+    "email": "rm@eazemyapi.com"
+  }
+}
+```
+
+---
+
+## Create Record
+
+Create a new record in a table.
+
+Example endpoint:
+
+```
+https://api.eazemyapi.com/soche-india/v2/create-user
+```
+
+Example request:
+
+```bash
+curl -X POST https://api.eazemyapi.com/soche-india/v2/create-user \
+  -H "Content-Type: application/json" \
+  -H "X-API-SIGNATURE: your-secret-key" \
+  -d '{
+    "name": "Romit",
+    "email": "rm@eazemyapi.com"
+  }'
+```
+
+Example response:
+
+```json
+{
+  "success": true,
+  "message": "User created successfully",
+  "data": {
+    "id": 1,
+    "name": "Romit",
+    "email": "rm@eazemyapi.com"
+  }
+}
+```
+
+---
+
+## Update Record
+
+Update an existing record.
+
+Example endpoint:
+
+```
+https://api.eazemyapi.com/soche-india/v2/update-user
+```
+
+Example request:
+
+```bash
+curl -X PUT https://api.eazemyapi.com/soche-india/v2/update-user \
+  -H "Content-Type: application/json" \
+  -H "X-API-SIGNATURE: your-secret-key" \
+  -d '{
+    "id": 1,
+    "name": "Romit Mevada"
+  }'
+```
+
+---
+
+## Delete Record
+
+Delete a record from a table.
+
+Example endpoint:
+
+```
+https://api.eazemyapi.com/soche-india/v2/delete-user
+```
+
+Example request:
+
+```bash
+curl -X DELETE https://api.eazemyapi.com/soche-india/v2/delete-user?id=1 \
+  -H "X-API-SIGNATURE: your-secret-key"
+```
+
+---
+
+# Custom Endpoints
+
+EazeMyAPI also supports **custom query endpoints**.
+
+Example:
+
+```
+https://api.eazemyapi.com/soche-india/v2/posts-by-category
+```
+
+Example response:
+
+```json
+{
+  "success": true,
+  "message": "Data found.",
+  "data": [
+    {
+      "category_id": "c40a4731-a541-4d2b-af77-326af7142aab",
+      "category_name": "Foods",
+      "post_id": "2529c967-33a3-4f7b-aabd-84e90f861e14",
+      "description": "Best restaurent in the world"
+    }
+  ]
+}
+```
+
+---
+
+# Best Practices
+
+When using EazeMyAPI endpoints:
+
+- Always include the **X-API-SIGNATURE header**
+- Validate request parameters
+- Handle error responses properly
+- Use HTTPS for all API requests
+
+---
+
+# Related Documentation
+
+Learn how authentication works:
+
+[Authentication](/docs/authentication)
+
+Understand response structure:
+
+[API Response Format](/docs/response-format)

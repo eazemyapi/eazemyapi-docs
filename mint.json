@@ -48,6 +48,7 @@
       "group": "API",
       "pages": [
         "docs/api-quick-start",
+        "docs/api-url-structure",
         "docs/api-endpoints",
         "docs/response-format",
         "docs/api-reference"

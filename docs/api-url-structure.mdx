@@ -1,0 +1,138 @@
+All EazeMyAPI endpoints follow a consistent URL structure.
+
+```
+https://api.eazemyapi.com/{project}/{version}/{endpoint}
+```
+
+Each part of the URL defines how the API request is routed.
+
+---
+
+# URL Components
+
+| Component | Description |
+|-----------|-------------|
+| `api.eazemyapi.com` | Base API server |
+| `{project}` | Your project identifier |
+| `{version}` | API version |
+| `{endpoint}` | API endpoint name |
+
+---
+
+# Example API URL
+
+Example endpoint:
+
+```
+https://api.eazemyapi.com/demo-project/v2/get-single-user
+```
+
+In this example:
+
+| Part | Value |
+|-----|------|
+| project | demo-project |
+| version | v2 |
+| endpoint | get-single-user |
+
+---
+
+# API Request Example
+
+Example request using **cURL**.
+
+```bash
+curl https://api.eazemyapi.com/demo-project/v2/get-single-user?id=1 \
+  -H "X-API-SIGNATURE: your-secret-key"
+```
+
+Example response:
+
+```json
+{
+  "success": true,
+  "message": "Data found.",
+  "data": {
+    "id": 1,
+    "name": "Romit",
+    "email": "rm@eazemyapi.com"
+  }
+}
+```
+
+---
+
+# API Versioning
+
+EazeMyAPI uses **versioned APIs** to ensure backward compatibility.
+
+Example versions:
+
+```
+v1
+v2
+v3
+```
+
+Example:
+
+```
+https://api.eazemyapi.com/demo-project/v2/get-users
+```
+
+Versioning allows your application to continue working even when new features are added.
+
+---
+
+# Endpoint Naming Convention
+
+Endpoints in EazeMyAPI typically follow clear naming patterns.
+
+Examples:
+
+| Endpoint | Description |
+|---------|-------------|
+| `get-users` | Fetch all users |
+| `get-single-user` | Fetch one user |
+| `create-user` | Create new user |
+| `update-user` | Update user |
+| `delete-user` | Delete user |
+
+These endpoints are automatically generated based on your database tables.
+
+---
+
+# Authentication Header
+
+Every request must include the API signature header.
+
+```
+X-API-SIGNATURE: your-secret-key
+```
+
+Learn more about authentication:
+
+[Authentication](/docs/authentication)
+
+---
+
+# Best Practices
+
+When building API requests:
+
+• Always include the **API signature header**  
+• Use the correct **API version**  
+• Validate request parameters  
+• Use HTTPS for secure communication
+
+---
+
+# Related Documentation
+
+Learn how APIs are generated automatically:
+
+[Generate API](/docs/generate-api)
+
+Explore available endpoints:
+
+[API Endpoints](/docs/api-endpoints)

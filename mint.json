@@ -1,6 +1,13 @@
 {
+  "$schema": "https://mintlify.com/schema.json",
+
   "name": "EazeMyAPI Documentation",
-  "favicon": "favicon.ico",
+  "favicon": "/favicon.ico",
+
+  "logo": {
+    "light": "/logo-light.png",
+    "dark": "/logo-dark.png"
+  },
 
   "colors": {
     "primary": "#2563eb",
@@ -44,5 +51,13 @@
         "guides/top-backend-tools-for-startups-2026"
       ]
     }
-  ]
+  ],
+
+  "footer": {
+    "socials": {
+      "website": "https://eazemyapi.com",
+      "twitter": "https://twitter.com",
+      "github": "https://github.com"
+    }
+  }
 }

@@ -1,14 +1,157 @@
+---
+title: Custom Queries
+description: Learn how to create custom SQL queries in EazeMyAPI and expose them as API endpoints.
+---
+
 # Custom Queries
 
-For advanced use cases, EazeMyAPI allows developers to write custom database queries.
+EazeMyAPI allows you to write **custom database queries** and expose them as API endpoints.
 
-This provides flexibility beyond the automatically generated APIs.
+This feature is useful when you need more control than the automatically generated CRUD APIs.
 
-Examples include:
+With custom queries you can:
 
-* complex filters
-* joins between tables
-* analytics queries
-* custom reports
+- Join multiple tables
+- Filter complex data
+- Create custom reports
+- Build advanced API endpoints
 
-Custom queries allow developers to combine **no-code simplicity with developer flexibility**.
+---
+
+# When to Use Custom Queries
+
+Use custom queries when:
+
+- You need **JOIN operations**
+- You want **custom filters**
+- You need **aggregated data**
+- You want **custom endpoints for frontend apps**
+
+Example use cases:
+
+- Fetch posts by category
+- Get user statistics
+- Build dashboard analytics
+- Filter records by multiple conditions
+
+---
+
+# Example Query
+
+Example query that retrieves posts by category.
+
+```sql
+SELECT 
+  categories.id AS category_id,
+  categories.name AS category_name,
+  posts.id AS post_id,
+  posts.description
+FROM categories
+JOIN posts ON posts.category_id = categories.id
+WHERE categories.name = 'Foods';
+```
+
+---
+
+# Generated API Endpoint
+
+Once a custom query is saved, EazeMyAPI automatically generates an API endpoint.
+
+Example endpoint:
+
+```
+https://api.eazemyapi.com/soche-india/v2/posts-by-category
+```
+
+---
+
+# Example API Request
+
+```bash
+curl https://api.eazemyapi.com/soche-india/v2/posts-by-category \
+  -H "X-API-SIGNATURE: your-secret-key"
+```
+
+---
+
+# Example API Response
+
+```json
+{
+  "success": true,
+  "message": "Data found.",
+  "data": [
+    {
+      "category_id": "c40a4731-a541-4d2b-af77-326af7142aab",
+      "category_name": "Foods",
+      "post_id": "2529c967-33a3-4f7b-aabd-84e90f861e14",
+      "description": "Best restaurent in the world"
+    },
+    {
+      "category_id": "c40a4731-a541-4d2b-af77-326af7142aab",
+      "category_name": "Foods",
+      "post_id": "5f8b35c8-372c-4ab2-9c01-569085f05a72",
+      "description": "Best restaurent in the Ahmedabad"
+    }
+  ]
+}
+```
+
+---
+
+# Creating a Custom Query
+
+To create a custom query in the dashboard:
+
+1. Open your **Project**
+2. Navigate to **Custom Queries**
+3. Click **Create Query**
+4. Write your SQL query
+5. Save the query
+
+Once saved, an API endpoint will automatically be generated.
+
+---
+
+# Query Parameters
+
+Custom queries can accept parameters.
+
+Example query:
+
+```sql
+SELECT *
+FROM posts
+WHERE category_id = :category_id;
+```
+
+Example API request:
+
+```
+https://api.eazemyapi.com/soche-india/v2/posts-by-category?category_id=c40a4731-a541-4d2b-af77-326af7142aab
+```
+
+---
+
+# Best Practices
+
+When writing custom queries:
+
+- Keep queries optimized
+- Use indexes when possible
+- Avoid returning unnecessary columns
+- Validate input parameters
+
+Well-written queries improve API performance.
+
+---
+
+# Related Documentation
+
+Learn how database tables work:
+
+[Database Schema](/docs/database-schema)
+
+Understand API endpoints:
+
+[API Endpoints](/docs/api-endpoints)

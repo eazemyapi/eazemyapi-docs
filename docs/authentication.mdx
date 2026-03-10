@@ -1,13 +1,19 @@
+---
+title: Authentication
+description: Learn how to authenticate API requests in EazeMyAPI using the X-API-SIGNATURE header.
+---
+
 # Authentication
 
 All API requests to **EazeMyAPI** must include an authentication header.
+
 This ensures that only authorized applications can access your project APIs.
 
 EazeMyAPI uses a **project-level API signature key** to verify requests.
 
 ---
 
-## API Signature Header
+# API Signature Header
 
 Every API request must include the following header:
 
@@ -19,7 +25,7 @@ This key identifies your project and authorizes the request.
 
 ---
 
-## Where to Find Your API Key
+# Where to Find Your API Key
 
 You can find your API signature key inside your project settings.
 
@@ -41,10 +47,16 @@ Keep this key secure. Do not expose it publicly.
 
 # Example API Request
 
-### JavaScript Example
+Example endpoint:
+
+```
+https://api.eazemyapi.com/soche-india/v2/get-single-user
+```
+
+Example request using JavaScript.
 
 ```javascript
-fetch("https://api.eazemyapi.com/users", {
+fetch("https://api.eazemyapi.com/soche-india/v2/get-single-user?id=1", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -57,16 +69,14 @@ fetch("https://api.eazemyapi.com/users", {
 });
 ```
 
-This request retrieves data from the **users table**.
-
 ---
 
 # Example Using cURL
 
 You can test the API using command-line tools like **cURL**.
 
-```
-curl https://api.eazemyapi.com/users \
+```bash
+curl https://api.eazemyapi.com/soche-india/v2/get-single-user?id=1 \
   -H "X-API-SIGNATURE: your-secret-key"
 ```
 
@@ -94,10 +104,10 @@ Then send the request.
 
 Follow these guidelines to protect your API key:
 
-* Never expose your secret key in public repositories
-* Avoid placing secret keys directly inside frontend code
-* Store API keys in environment variables
-* Rotate keys if you suspect unauthorized access
+- Never expose your secret key in public repositories
+- Avoid placing secret keys directly inside frontend code
+- Store API keys in environment variables
+- Rotate keys if you suspect unauthorized access
 
 ---
 
@@ -106,6 +116,7 @@ Follow these guidelines to protect your API key:
 The API signature key gives access to your project APIs.
 
 Anyone who has this key can send requests to your backend.
+
 Always handle it securely and avoid sharing it publicly.
 
 ---
@@ -116,4 +127,4 @@ Once authentication is configured, you can start executing advanced database ope
 
 Continue to:
 
-[Writing Custom Queries](custom-queries.md)
+[Writing Custom Queries](/docs/custom-queries)

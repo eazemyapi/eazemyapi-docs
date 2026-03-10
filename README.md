@@ -105,3 +105,8 @@ You can contribute examples, starter templates, or tutorials to help other devel
 ## License
 
 MIT License
+
+AI backend generator
+REST API builder
+no code backend
+backend for startup MVP

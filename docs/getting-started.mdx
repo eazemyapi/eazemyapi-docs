@@ -11,7 +11,7 @@ This guide shows the fastest way to start using **AI-powered backend generation*
 
 ---
 
-# Option 1 — Create Backend with AI (Recommended)
+## Option 1 — Create Backend with AI (Recommended)
 
 The easiest way to start is using the **AI Project Generator**.
 
@@ -19,7 +19,7 @@ Instead of manually creating tables, simply describe your application idea and E
 
 ---
 
-## Step 1 — Login to Dashboard
+### Step 1 — Login to Dashboard
 
 Visit:
 
@@ -31,7 +31,7 @@ Login to your account.
 
 ---
 
-## Step 2 — Open AI Project Generator
+### Step 2 — Open AI Project Generator
 
 Click:
 
@@ -41,11 +41,11 @@ Create Project → Generate with AI
 
 ---
 
-## Step 3 — Describe Your Application
+### Step 3 — Describe Your Application
 
 Write a short description of the backend you want to build.
 
-Example:
+#### Example
 
 ```
 Create a backend for a task management app where users can create projects and tasks.
@@ -53,7 +53,7 @@ Create a backend for a task management app where users can create projects and t
 
 ---
 
-## Step 4 — AI Generates Backend
+### Step 4 — AI Generates Backend
 
 EazeMyAPI will automatically generate:
 
@@ -61,42 +61,64 @@ EazeMyAPI will automatically generate:
 * Table fields
 * API endpoints
 
-Example generated structure:
+#### Example Generated Structure
 
-Users
-Projects
-Tasks
+* Users
+* Projects
+* Tasks
 
 Each table will be connected and ready for use.
 
 ---
 
-## Step 5 — APIs Are Ready
+### Real AI Example
+
+Here’s what happens when you describe your app:
+
+```
+Input:
+"Task management app where users can create projects and tasks"
+
+↓
+
+AI Output:
+- users table
+- projects table
+- tasks table
+- relationships created automatically
+- APIs generated instantly
+```
+
+This entire backend is created within seconds—no manual setup required.
+
+---
+
+### Step 5 — APIs Are Ready
 
 Once the backend is generated, EazeMyAPI automatically creates REST APIs.
 
-Example endpoints:
+#### Example Endpoints
 
 ```
-GET /tasks
-POST /tasks
-PUT /tasks/{id}
-DELETE /tasks/{id}
+GET    /{project}/tasks/{version}/list
+POST   /{project}/tasks/{version}/create
+POST   /{project}/tasks/{version}/update/{id}
+DELETE /{project}/tasks/{version}/delete/{id}
 ```
 
 Your backend is now ready.
 
 ---
 
-# Option 2 — Manual Backend Creation
+## Option 2 — Manual Backend Creation
 
 You can also build your backend manually.
 
-Steps:
+### Steps
 
 1. Create a project
 2. Create database tables
-3. Generate APIs automatically
+3. APIs are generated automatically
 
 Continue reading:
 
@@ -104,7 +126,7 @@ Continue reading:
 
 ---
 
-# Connect Your Frontend
+## Connect Your Frontend
 
 Once your backend is ready, you can connect it with:
 

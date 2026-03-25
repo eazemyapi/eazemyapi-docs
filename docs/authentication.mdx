@@ -6,7 +6,7 @@ EazeMyAPI uses a **project-level API signature key** to verify requests.
 
 ---
 
-# API Signature Header
+## API Signature Header
 
 Every API request must include the following header:
 
@@ -18,17 +18,17 @@ This key identifies your project and authorizes the request.
 
 ---
 
-# Where to Find Your API Key
+## Where to Find Your API Key
 
 You can find your API signature key inside your project settings.
 
-Steps:
+### Steps
 
 1. Open your **Project**
 2. Go to **Settings**
 3. Copy the **API Signature Key**
 
-Location in dashboard:
+### Location in Dashboard
 
 ```
 Project → Settings → API Signature Key
@@ -38,18 +38,16 @@ Keep this key secure. Do not expose it publicly.
 
 ---
 
-# Example API Request
-
-Example endpoint:
+## Example API Request
 
 ```
-https://api.eazemyapi.com/soche-india/v2/get-single-user
+https://api.eazemyapi.com/demo-project/users/v1/list
 ```
 
-Example request using JavaScript.
+### JavaScript Example
 
 ```javascript
-fetch("https://api.eazemyapi.com/soche-india/v2/get-single-user?id=1", {
+fetch("https://api.eazemyapi.com/demo-project/users/v1/list", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -64,18 +62,16 @@ fetch("https://api.eazemyapi.com/soche-india/v2/get-single-user?id=1", {
 
 ---
 
-# Example Using cURL
-
-You can test the API using command-line tools like **cURL**.
+## Example Using cURL
 
 ```bash
-curl https://api.eazemyapi.com/soche-india/v2/get-single-user?id=1 \
+curl https://api.eazemyapi.com/demo-project/users/v1/list \
   -H "X-API-SIGNATURE: your-secret-key"
 ```
 
 ---
 
-# Example Using Postman
+## Example Using Postman
 
 When testing APIs in **Postman**:
 
@@ -93,18 +89,18 @@ Then send the request.
 
 ---
 
-# Security Best Practices
+## Security Best Practices
 
 Follow these guidelines to protect your API key:
 
-- Never expose your secret key in public repositories
-- Avoid placing secret keys directly inside frontend code
-- Store API keys in environment variables
-- Rotate keys if you suspect unauthorized access
+* Never expose your secret key in public repositories
+* Avoid placing secret keys directly inside frontend code
+* Store API keys in environment variables
+* Rotate keys if you suspect unauthorized access
 
 ---
 
-# Important Note
+## Important Note
 
 The API signature key gives access to your project APIs.
 
@@ -114,7 +110,7 @@ Always handle it securely and avoid sharing it publicly.
 
 ---
 
-# Next Step
+## Next Step
 
 Once authentication is configured, you can start executing advanced database operations.
 

@@ -1,7 +1,5 @@
 This guide shows how to start using **EazeMyAPI APIs in less than 5 minutes**.
-
 You will learn how to:
-
 * Create a project
 * Generate APIs
 * Call APIs from your application
@@ -13,7 +11,6 @@ You will learn how to:
 Login to your dashboard.
 
 Open:
-
 ```
 Dashboard → Create Project
 ```
@@ -21,9 +18,8 @@ Dashboard → Create Project
 Enter your project name.
 
 Example:
-
 ```
-MyStartupBackend
+my-project
 ```
 
 Each project has its own database and APIs.
@@ -35,13 +31,11 @@ Each project has its own database and APIs.
 Inside your project, create a table.
 
 Example table:
-
 ```
 users
 ```
 
 Add fields:
-
 ```
 id
 name
@@ -60,13 +54,11 @@ EazeMyAPI will automatically generate APIs for this table.
 Every API request requires your **API Signature Key**.
 
 You can find it here:
-
 ```
 Project → Settings → API Signature Key
 ```
 
 Example:
-
 ```
 X-API-SIGNATURE: your-secret-key
 ```
@@ -77,12 +69,16 @@ Keep this key secure.
 
 # Step 4 — Call Your First API
 
-Example request to fetch users.
+Example request to fetch all users.
+
+```
+GET https://api.eazemyapi.com/{project-name}/{table}/{version}/list
+```
 
 ### JavaScript Example
 
 ```javascript
-fetch("https://api.eazemyapi.com/users", {
+fetch("https://api.eazemyapi.com/my-project/users/v1/list", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -95,7 +91,7 @@ fetch("https://api.eazemyapi.com/users", {
 });
 ```
 
-This request retrieves all records from the **users table**.
+This request retrieves all records from the **users** table.
 
 ---
 
@@ -103,16 +99,20 @@ This request retrieves all records from the **users table**.
 
 Example request to create a new user.
 
+```
+POST https://api.eazemyapi.com/{project-name}/{table}/{version}/create
+```
+
 ```javascript
-fetch("https://api.eazemyapi.com/users", {
+fetch("https://api.eazemyapi.com/my-project/users/v1/create", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
     "X-API-SIGNATURE": "your-secret-key"
   },
   body: JSON.stringify({
-    name: "John",
-    email: "john@example.com"
+    name: "Dara Singh",
+    email: "dara@example.com"
   })
 })
 .then(response => response.json())
@@ -129,8 +129,8 @@ This creates a new user in the database.
 
 You can also test APIs using cURL or Postman.
 
-```
-curl https://api.eazemyapi.com/users \
+```bash
+curl -X GET https://api.eazemyapi.com/my-project/users/v1/list \
   -H "X-API-SIGNATURE: your-secret-key"
 ```
 
@@ -139,7 +139,6 @@ curl https://api.eazemyapi.com/users \
 # What Happens Next?
 
 After connecting your API, you can:
-
 * Integrate with React or Next.js
 * Build mobile apps
 * Create SaaS products
@@ -155,16 +154,12 @@ Continue reading the documentation:
 
 * [Getting Started](docs/getting-started)
   Learn how to create your first backend project.
-
 * [Creating Tables](docs/create-tables)
   Define database tables and structure your data.
-
 * [Authentication](docs/authentication)
   Secure your APIs using the API signature key.
-
 * [Custom Queries](docs/custom-queries)
   Execute advanced queries and build complex logic.
-
 * [Frontend Integration](docs/frontend-integration)
   Connect EazeMyAPI APIs with React, Flutter, or mobile apps.
 

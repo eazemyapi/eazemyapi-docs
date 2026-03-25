@@ -1,36 +1,71 @@
 Tables are the foundation of your backend.
 
-Each table represents a collection of data.
+Each table represents a collection of structured data used by your application.
 
-Example tables:
+### Common Examples
 
-Users
-Products
-Orders
-Messages
+* Users
+* Products
+* Orders
+* Messages
+
+---
 
 ## How to Create a Table
 
-1. Open your project dashboard
+Follow these steps to create a new table:
+
+1. Open your **Project Dashboard**
 2. Click **Create Table**
-3. Enter table name
-4. Add fields
+3. Enter a **Table Name**
+4. Add required **Fields (Columns)**
+5. Click **Save**
 
-Example fields for Users table:
+---
 
-* id (Primary Key)
-* name (Text)
-* email (Text)
-* password (Text)
-* created_at (Datetime)
+## Example: Users Table
 
-After saving, EazeMyAPI automatically prepares APIs for this table.
+Below is a simple example of a Users table structure:
+
+| Field      | Type        | Description          |
+| ---------- | ----------- | -------------------- |
+| id         | Primary Key | Unique identifier    |
+| name       | Text        | User name            |
+| email      | Text        | User email           |
+| password   | Text        | Encrypted password   |
+| created_at | Datetime    | Record creation time |
+
+---
+
+## What Happens After Creating a Table?
+
+Once your table is saved, EazeMyAPI automatically:
+
+* Generates CRUD APIs
+* Connects APIs to your database
+* Enables authentication for requests
+* Prepares your backend instantly
+
+You can immediately start using APIs for this table.
 
 ---
 
 ## Best Practices
 
-* Use clear table names
-* Keep fields simple
-* Avoid unnecessary columns
-* Plan relationships early
+Follow these guidelines for better backend design:
+
+* Use clear and meaningful table names (e.g., `users`, `orders`)
+* Keep field names simple and consistent
+* Avoid unnecessary or duplicate columns
+* Use proper data types for each field
+* Plan relationships between tables early (e.g., user_id in orders)
+
+---
+
+## Next Step
+
+Now that your table is ready, you can start using APIs generated for it.
+
+Continue to:
+
+[Using APIs](api-endpoints)

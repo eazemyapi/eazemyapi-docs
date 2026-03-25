@@ -1,7 +1,5 @@
 EazeMyAPI automatically generates REST API endpoints for every table created in your project.
-
 These endpoints allow your applications to perform standard **CRUD operations**:
-
 - Create data
 - Read data
 - Update data
@@ -16,23 +14,23 @@ No backend server code is required.
 All EazeMyAPI endpoints follow a consistent structure.
 
 ```
-https://api.eazemyapi.com/{project-name}/{version}/{endpoint}
+https://api.eazemyapi.com/{project-name}/{table}/{version}/{action}
 ```
 
 Example:
-
 ```
-https://api.eazemyapi.com/soche-india/v2/get-single-user
+https://api.eazemyapi.com/my-project/users/v1/list
 ```
 
 Components:
 
 | Part | Description |
-|-----|-------------|
-| api.eazemyapi.com | API server |
-| project-name | Your project identifier |
-| version | API version |
-| endpoint | API action |
+|------|-------------|
+| `api.eazemyapi.com` | API server |
+| `{project-name}` | Your project identifier |
+| `{table}` | The table name |
+| `{version}` | API version (e.g. `v1`, `v2`) |
+| `{action}` | API action (e.g. `list`, `create`, `delete`) |
 
 ---
 
@@ -42,25 +40,21 @@ When you create a table, EazeMyAPI automatically generates endpoints for common 
 
 ---
 
-## Get All Records
+## List
 
 Retrieve all records from a table.
 
-Example endpoint:
-
 ```
-https://api.eazemyapi.com/soche-india/v2/get-users
+GET https://api.eazemyapi.com/{project-name}/{table}/{version}/list
 ```
 
 Example request:
-
 ```bash
-curl https://api.eazemyapi.com/soche-india/v2/get-users \
+curl -X GET https://api.eazemyapi.com/my-project/users/v1/list \
   -H "X-API-SIGNATURE: your-secret-key"
 ```
 
 Example response:
-
 ```json
 {
   "success": true,
@@ -68,8 +62,8 @@ Example response:
   "data": [
     {
       "id": 1,
-      "name": "Romit",
-      "email": "rm@eazemyapi.com"
+      "name": "Dara Singh",
+      "email": "dara@example.com"
     }
   ]
 }
@@ -77,132 +71,141 @@ Example response:
 
 ---
 
-## Get Single Record
+## Show
 
-Retrieve one record using an identifier.
-
-Example endpoint:
+Retrieve a single record by ID.
 
 ```
-https://api.eazemyapi.com/soche-india/v2/get-single-user
+GET https://api.eazemyapi.com/{project-name}/{table}/{version}/show/:id
 ```
 
 Example request:
-
 ```bash
-curl https://api.eazemyapi.com/soche-india/v2/get-single-user?id=1 \
+curl -X GET https://api.eazemyapi.com/my-project/users/v1/show/1 \
   -H "X-API-SIGNATURE: your-secret-key"
 ```
 
 Example response:
-
 ```json
 {
   "success": true,
   "message": "Data found.",
   "data": {
     "id": 1,
-    "name": "Romit",
-    "email": "rm@eazemyapi.com"
+    "name": "Dara Singh",
+    "email": "dara@example.com"
   }
 }
 ```
 
 ---
 
-## Create Record
+## Create
 
 Create a new record in a table.
 
-Example endpoint:
-
 ```
-https://api.eazemyapi.com/soche-india/v2/create-user
+POST https://api.eazemyapi.com/{project-name}/{table}/{version}/create
 ```
 
 Example request:
-
 ```bash
-curl -X POST https://api.eazemyapi.com/soche-india/v2/create-user \
+curl -X POST https://api.eazemyapi.com/my-project/users/v1/create \
   -H "Content-Type: application/json" \
   -H "X-API-SIGNATURE: your-secret-key" \
   -d '{
-    "name": "Romit",
-    "email": "rm@eazemyapi.com"
+    "name": "Dara Singh",
+    "email": "dara@example.com"
   }'
 ```
 
 Example response:
-
 ```json
 {
   "success": true,
-  "message": "User created successfully",
+  "message": "Record created successfully.",
   "data": {
     "id": 1,
-    "name": "Romit",
-    "email": "rm@eazemyapi.com"
+    "name": "Dara Singh",
+    "email": "dara@example.com"
   }
 }
 ```
 
 ---
 
-## Update Record
+## Update
 
-Update an existing record.
-
-Example endpoint:
+Update an existing record by ID.
 
 ```
-https://api.eazemyapi.com/soche-india/v2/update-user
+POST https://api.eazemyapi.com/{project-name}/{table}/{version}/update/:id
 ```
 
 Example request:
-
 ```bash
-curl -X PUT https://api.eazemyapi.com/soche-india/v2/update-user \
+curl -X POST https://api.eazemyapi.com/my-project/users/v1/update/1 \
   -H "Content-Type: application/json" \
   -H "X-API-SIGNATURE: your-secret-key" \
   -d '{
-    "id": 1,
-    "name": "Romit Mevada"
+    "name": "Dara Singh"
   }'
+```
+
+Example response:
+```json
+{
+  "success": true,
+  "message": "Record updated successfully.",
+  "data": {
+    "id": 1,
+    "name": "Dara Singh",
+    "email": "dara@example.com"
+  }
+}
 ```
 
 ---
 
-## Delete Record
+## Delete
 
-Delete a record from a table.
-
-Example endpoint:
+Delete a record by ID.
 
 ```
-https://api.eazemyapi.com/soche-india/v2/delete-user
+DELETE https://api.eazemyapi.com/{project-name}/{table}/{version}/delete/:id
 ```
 
 Example request:
-
 ```bash
-curl -X DELETE https://api.eazemyapi.com/soche-india/v2/delete-user?id=1 \
+curl -X DELETE https://api.eazemyapi.com/my-project/users/v1/delete/1 \
   -H "X-API-SIGNATURE: your-secret-key"
+```
+
+Example response:
+```json
+{
+  "success": true,
+  "message": "Record deleted successfully."
+}
 ```
 
 ---
 
 # Custom Endpoints
 
-EazeMyAPI also supports **custom query endpoints**.
-
-Example:
+EazeMyAPI also supports **raw custom query endpoints** for more advanced use cases. Unlike CRUD endpoints, custom queries are not tied to a specific table — so there is no `{table}` segment in the URL.
 
 ```
-https://api.eazemyapi.com/soche-india/v2/posts-by-category
+https://api.eazemyapi.com/{project-name}/{version}/{custom-endpoint}
+```
+
+Example request:
+```bash
+curl https://api.eazemyapi.com/my-project/v1/posts-by-category \
+  -H "X-API-SIGNATURE: your-secret-key"
 ```
 
 Example response:
-
 ```json
 {
   "success": true,
@@ -212,7 +215,7 @@ Example response:
       "category_id": "c40a4731-a541-4d2b-af77-326af7142aab",
       "category_name": "Foods",
       "post_id": "2529c967-33a3-4f7b-aabd-84e90f861e14",
-      "description": "Best restaurent in the world"
+      "description": "Best restaurant in the world"
     }
   ]
 }
@@ -223,9 +226,8 @@ Example response:
 # Best Practices
 
 When using EazeMyAPI endpoints:
-
-- Always include the **X-API-SIGNATURE header**
-- Validate request parameters
+- Always include the **`X-API-SIGNATURE` header**
+- Validate request parameters before sending
 - Handle error responses properly
 - Use HTTPS for all API requests
 

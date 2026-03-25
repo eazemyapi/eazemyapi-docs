@@ -14,56 +14,6 @@ X-API-SIGNATURE: <secret-key>
 
 ---
 
-## Where to Find the Secret Key
-
-You can find your API signature key inside the dashboard.
-
-### Steps
-
-1. Open your **Project**
-2. Go to **Settings**
-3. Copy the **API Signature Key**
-
-### Location
-
-```
-Project → Settings → API Signature Key
-```
-
-⚠️ Keep this key secure. Do not expose it publicly.
-
----
-
-## Try in Postman
-
-You can quickly test APIs using Postman.
-
-<a href="https://www.postman.com/downloads/" target="_blank">
-  <button>Open in Postman</button>
-</a>
-
-(Optional: Provide a downloadable Postman collection for your project APIs.)
-
----
-
-## Example Requests (All Technologies)
-
-### JavaScript (Fetch)
-
-```javascript
-fetch("https://api.eazemyapi.com/demo-project/users/v1/list", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    "X-API-SIGNATURE": "your-secret-key"
-  }
-})
-.then(res => res.json())
-.then(data => console.log(data));
-```
-
----
-
 ### JavaScript (Axios)
 
 ```javascript
@@ -168,3 +118,135 @@ If your application requires user-level security, implement authentication and a
 
 ---
 
+## Framework Examples
+
+### React
+
+```javascript
+import React, { useEffect } from "react";
+
+function App() {
+  useEffect(() => {
+    fetch("https://api.eazemyapi.com/demo-project/users/v1/list", {
+      headers: {
+        "X-API-SIGNATURE": "your-secret-key"
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data));
+  }, []);
+
+  return <div>Check console</div>;
+}
+
+export default App;
+```
+
+---
+
+### Next.js
+
+```javascript
+export async function getServerSideProps() {
+  const res = await fetch("https://api.eazemyapi.com/demo-project/users/v1/list", {
+    headers: {
+      "X-API-SIGNATURE": "your-secret-key"
+    }
+  });
+
+  const data = await res.json();
+
+  return { props: { data } };
+}
+```
+
+---
+
+### Vue.js
+
+```javascript
+export default {
+  mounted() {
+    fetch("https://api.eazemyapi.com/demo-project/users/v1/list", {
+      headers: {
+        "X-API-SIGNATURE": "your-secret-key"
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data));
+  }
+};
+```
+
+---
+
+### Angular
+
+```typescript
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+constructor(private http: HttpClient) {}
+
+ngOnInit() {
+  const headers = new HttpHeaders({
+    'X-API-SIGNATURE': 'your-secret-key'
+  });
+
+  this.http.get('https://api.eazemyapi.com/demo-project/users/v1/list', { headers })
+    .subscribe(res => console.log(res));
+}
+```
+
+---
+
+### Flutter (Dart)
+
+```dart
+import 'package:http/http.dart' as http;
+
+void fetchData() async {
+  var response = await http.get(
+    Uri.parse('https://api.eazemyapi.com/demo-project/users/v1/list'),
+    headers: {
+      'X-API-SIGNATURE': 'your-secret-key'
+    },
+  );
+
+  print(response.body);
+}
+```
+
+---
+
+### Android (Kotlin)
+
+```kotlin
+val client = OkHttpClient()
+
+val request = Request.Builder()
+    .url("https://api.eazemyapi.com/demo-project/users/v1/list")
+    .addHeader("X-API-SIGNATURE", "your-secret-key")
+    .build()
+
+val response = client.newCall(request).execute()
+println(response.body?.string())
+```
+
+---
+
+### iOS (Swift)
+
+```swift
+import Foundation
+
+var request = URLRequest(url: URL(string: "https://api.eazemyapi.com/demo-project/users/v1/list")!)
+request.addValue("your-secret-key", forHTTPHeaderField: "X-API-SIGNATURE")
+
+let task = URLSession.shared.dataTask(with: request) { data, response, error in
+    if let data = data {
+        print(String(data: data, encoding: .utf8)!)
+    }
+}
+
+task.resume()
+```

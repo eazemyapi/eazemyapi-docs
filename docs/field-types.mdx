@@ -1,18 +1,17 @@
-
-When creating tables in EazeMyAPI, each field must have a **data type**.  
+When creating tables in EazeMyAPI, each field must have a **data type**.
 The data type defines what kind of data the field can store.
 
 Choosing the correct field type ensures:
 
-- Better data validation
-- Efficient database queries
-- Accurate API responses
+* Better data validation
+* Efficient database queries
+* Accurate API responses
 
 ---
 
-# Supported Field Types
+## Supported Field Types
 
-EazeMyAPI currently supports the following field types.
+EazeMyAPI supports the following field types.
 
 ---
 
@@ -22,22 +21,22 @@ The **TEXT** type stores short text values.
 
 Common uses:
 
-- names
-- titles
-- usernames
-- city names
+* names
+* titles
+* usernames
+* city names
 
 Example:
 
 ```
-name: "Romit"
+name: "Dara Singh"
 ```
 
 Example API response:
 
 ```json
 {
-  "name": "Romit"
+  "name": "Dara Singh"
 }
 ```
 
@@ -49,10 +48,10 @@ The **NUMBER** type stores integer numbers.
 
 Common uses:
 
-- age
-- quantity
-- counts
-- IDs
+* age
+* quantity
+* counts
+* IDs
 
 Example:
 
@@ -76,16 +75,16 @@ The **PARAGRAPH** type stores long text content.
 
 Common uses:
 
-- descriptions
-- blog content
-- notes
-- comments
+* descriptions
+* blog content
+* notes
+* comments
 
 Example:
 
 ```json
 {
-  "bio": "Romit is the founder of EazeMyAPI and focuses on building developer tools that simplify backend development."
+  "bio": "Dara Singh is a sample user created for demonstration purposes."
 }
 ```
 
@@ -97,10 +96,10 @@ The **DECIMAL** type stores numbers with decimal values.
 
 Common uses:
 
-- prices
-- ratings
-- percentages
-- measurements
+* prices
+* ratings
+* percentages
+* measurements
 
 Example:
 
@@ -118,9 +117,9 @@ The **DATE** type stores a calendar date.
 
 Common uses:
 
-- birth date
-- event date
-- joining date
+* birth date
+* event date
+* joining date
 
 Example:
 
@@ -138,9 +137,9 @@ The **DATETIME** type stores both date and time.
 
 Common uses:
 
-- created_at
-- updated_at
-- event timestamps
+* created_at
+* updated_at
+* event timestamps
 
 Example:
 
@@ -174,15 +173,15 @@ The **EMAIL** type stores valid email addresses.
 
 Common uses:
 
-- user login
-- account registration
-- contact information
+* user login
+* account registration
+* contact information
 
 Example:
 
 ```json
 {
-  "email": "rm@eazemyapi.com"
+  "email": "dara@example.com"
 }
 ```
 
@@ -196,7 +195,7 @@ Example:
 
 ```json
 {
-  "phone": "+91 9876543210"
+  "phone": "+91 9898989898"
 }
 ```
 
@@ -208,9 +207,9 @@ The **BOOLEAN** type stores true or false values.
 
 Common uses:
 
-- active status
-- verification status
-- feature flags
+* active status
+* verification status
+* feature flags
 
 Example:
 
@@ -222,81 +221,70 @@ Example:
 
 ---
 
-# Example Table
+## Example Table
 
 Example **users** table:
 
-| Field | Type |
-|------|------|
-| id | NUMBER |
-| name | TEXT |
-| email | EMAIL |
-| phone | PHONE |
-| bio | PARAGRAPH |
-| is_active | BOOLEAN |
-| created_at | DATETIME |
+| Field      | Type      |
+| ---------- | --------- |
+| id         | NUMBER    |
+| name       | TEXT      |
+| email      | EMAIL     |
+| phone      | PHONE     |
+| bio        | PARAGRAPH |
+| is_active  | BOOLEAN   |
+| created_at | DATETIME  |
 
-Example record:
+### Example Record
 
 ```json
 {
   "id": 1,
-  "name": "Romit",
-  "email": "rm@eazemyapi.com",
-  "phone": "+91 9876543210",
-  "bio": "Founder of EazeMyAPI",
+  "name": "Dara Singh",
+  "email": "dara@example.com",
+  "phone": "+91 9898989898",
+  "bio": "Sample user for API demonstration",
   "is_active": true
 }
 ```
 
 ---
 
-# Example API Request
+## Example API Request
 
 After creating a table, EazeMyAPI automatically generates APIs.
 
-Example endpoint:
+### Example Endpoint
 
 ```
-https://api.eazemyapi.com/soche-india/v2/get-single-user
+https://api.eazemyapi.com/demo-project/users/v1/list
 ```
 
-Example request:
+### Example Request
 
 ```bash
-curl https://api.eazemyapi.com/soche-india/v2/get-single-user?id=1
-```
-
-Example response:
-
-```json
-{
-  "id": 1,
-  "name": "Romit",
-  "email": "rm@eazemyapi.com",
-  "phone": "+91 9876543210",
-  "is_active": true
-}
+curl https://api.eazemyapi.com/demo-project/users/v1/list \
+  -H "X-API-SIGNATURE: your-secret-key"
 ```
 
 ---
 
-# Best Practices
+## Best Practices
 
 When choosing field types:
 
-- Use **TEXT** for short text
-- Use **PARAGRAPH** for long content
-- Use **NUMBER** for integers
-- Use **DECIMAL** for prices or ratings
-- Use **BOOLEAN** for true/false values
-- Use **DATETIME** for timestamps
+* Use **TEXT** for short text
+* Use **PARAGRAPH** for long content
+* Use **NUMBER** for integers
+* Use **DECIMAL** for prices or ratings
+* Use **BOOLEAN** for true/false values
+* Use **DATETIME** for timestamps
 
 Correct field types make your APIs faster and easier to use.
 
 ---
 
-# Next Step
+## Next Step
 
 Learn how database schema works in EazeMyAPI.
 

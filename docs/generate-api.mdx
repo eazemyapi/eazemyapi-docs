@@ -1,4 +1,3 @@
-
 EazeMyAPI automatically generates REST APIs based on the tables you create in your project.
 
 Once your database schema is defined, the platform instantly creates API endpoints that allow applications to interact with your data.
@@ -7,25 +6,24 @@ No backend server code is required.
 
 ---
 
-# API URL Structure
+## API URL Structure
 
 All EazeMyAPI endpoints follow this structure:
 
 ```
-https://api.eazemyapi.com/{project}/{version}/{endpoint}
+https://api.eazemyapi.com/{project}/{table}/{version}/{action}
 ```
 
-Example:
-
-| Parameter | Description |
-|-----------|-------------|
-| `{project}` | Your project identifier |
-| `{version}` | API version |
-| `{endpoint}` | Generated API endpoint |
+| Parameter   | Description                              |
+| ----------- | ---------------------------------------- |
+| `{project}` | Your project identifier                  |
+| `{table}`   | Database table name                      |
+| `{version}` | API version                              |
+| `{action}`  | Operation (list, create, update, delete) |
 
 ---
 
-# How API Generation Works
+## How API Generation Works
 
 The API generation process follows these steps:
 
@@ -43,38 +41,68 @@ Each table you create becomes an API resource.
 
 ---
 
-# Example Table
+## Instant API Example
+
+Here’s what happens in real-time when you create a table:
+
+```
+You create: users table
+        ↓
+API generated: /demo-project/users/v1/list
+        ↓
+You call API → Get data
+```
+
+### Example Endpoint
+
+```
+https://api.eazemyapi.com/demo-project/users/v1/list
+```
+
+### Example Response
+
+```json
+{
+  "success": true,
+  "message": "Data found.",
+  "data": [
+    {
+      "id": 1,
+      "name": "Dara Singh",
+      "email": "dara@example.com"
+    }
+  ]
+}
+```
+
+This is generated instantly—no backend code required.
+
+---
+
+## Example Table
 
 Example **users** table:
 
-| Field | Type |
-|------|------|
-| id | NUMBER |
-| name | TEXT |
-| email | EMAIL |
-| phone | PHONE |
+| Field      | Type     |
+| ---------- | -------- |
+| id         | NUMBER   |
+| name       | TEXT     |
+| email      | EMAIL    |
+| phone      | PHONE    |
 | created_at | DATETIME |
 
 After creating this table, EazeMyAPI automatically generates API endpoints.
 
 ---
 
-# Generated API Endpoints
+## Generated API Endpoints
 
 Typical endpoints generated for a table include:
 
-### Get All Records
+### List Records
 
 ```
-https://api.eazemyapi.com/{project}/{version}/get-users
-```
-
----
-
-### Get Single Record
-
-```
-https://api.eazemyapi.com/{project}/{version}/get-single-user
+GET /{project}/users/{version}/list
 ```
 
 ---
@@ -82,7 +110,7 @@ https://api.eazemyapi.com/{project}/{version}/get-single-user
 ### Create Record
 
 ```
-https://api.eazemyapi.com/{project}/{version}/create-user
+POST /{project}/users/{version}/create
 ```
 
 ---
@@ -90,7 +118,7 @@ https://api.eazemyapi.com/{project}/{version}/create-user
 ### Update Record
 
 ```
-https://api.eazemyapi.com/{project}/{version}/update-user
+POST /{project}/users/{version}/update/{id}
 ```
 
 ---
@@ -98,72 +126,72 @@ https://api.eazemyapi.com/{project}/{version}/update-user
 ### Delete Record
 
 ```
-https://api.eazemyapi.com/{project}/{version}/delete-user
+DELETE /{project}/users/{version}/delete/{id}
 ```
 
 ---
 
-# Example API Request
+## Example API Request
 
-Example endpoint:
+### Endpoint
 
 ```
-https://api.eazemyapi.com/demo-project/v2/get-single-user
+https://api.eazemyapi.com/demo-project/users/v1/list
 ```
 
-Example request:
+### Request
 
 ```bash
-curl https://api.eazemyapi.com/demo-project/v2/get-single-user?id=1 \
+curl https://api.eazemyapi.com/demo-project/users/v1/list \
   -H "X-API-SIGNATURE: your-secret-key"
 ```
 
-Example response:
+### Example Response
 
 ```json
 {
   "success": true,
   "message": "Data found.",
-  "data": {
-    "id": 1,
-    "name": "Romit",
-    "email": "rm@eazemyapi.com"
-  }
+  "data": [
+    {
+      "id": 1,
+      "name": "Dara Singh",
+      "email": "dara@example.com"
+    }
+  ]
 }
 ```
 
 ---
 
-# Automatic CRUD Operations
+## Automatic CRUD Operations
 
 Each generated API supports standard **CRUD operations**.
 
-| Operation | Description |
-|-----------|-------------|
-| Create | Add new records |
-| Read | Retrieve records |
-| Update | Modify existing records |
-| Delete | Remove records |
-
-This allows developers to build backend functionality quickly.
+| Operation | Description             |
+| --------- | ----------------------- |
+| Create    | Add new records         |
+| Read      | Retrieve records        |
+| Update    | Modify existing records |
+| Delete    | Remove records          |
 
 ---
 
-# Benefits of Automatic API Generation
+## Benefits of Automatic API Generation
 
 Using EazeMyAPI to generate APIs provides several advantages:
 
-- No backend server setup required
-- Faster development
-- Standardized API structure
-- Secure authentication support
-- Easy frontend integration
+* No backend server setup required
+* Faster development
+* Standardized API structure
+* Secure authentication support
+* Easy frontend integration
 
 Developers can focus on building applications instead of managing backend infrastructure.
 
 ---
 
-# Related Documentation
+## Related Documentation
 
 Learn how to create tables:
 

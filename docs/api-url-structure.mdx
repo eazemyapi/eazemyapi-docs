@@ -1,72 +1,91 @@
+# EazeMyAPI URL Structure
+
 All EazeMyAPI endpoints follow a consistent URL structure.
 
 ```
-https://api.eazemyapi.com/{project}/{version}/{endpoint}
+https://api.eazemyapi.com/{project}/{table}/{version}/{action}
 ```
 
 Each part of the URL defines how the API request is routed.
 
 ---
 
-# URL Components
+## URL Components
 
-| Component | Description |
-|-----------|-------------|
-| `api.eazemyapi.com` | Base API server |
-| `{project}` | Your project identifier |
-| `{version}` | API version |
-| `{endpoint}` | API endpoint name |
+| Component           | Description                                   |
+| ------------------- | --------------------------------------------- |
+| `api.eazemyapi.com` | Base API server                               |
+| `{project}`         | Your project identifier                       |
+| `{table}`           | Database table name                           |
+| `{version}`         | API version (v1, v2, etc.)                    |
+| `{action}`          | CRUD operation (list, create, update, delete) |
 
 ---
 
-# Example API URL
-
-Example endpoint:
+## Example API URL
 
 ```
-https://api.eazemyapi.com/demo-project/v2/get-single-user
+https://api.eazemyapi.com/demo-project/users/v1/list
 ```
 
 In this example:
 
-| Part | Value |
-|-----|------|
+| Part    | Value        |
+| ------- | ------------ |
 | project | demo-project |
-| version | v2 |
-| endpoint | get-single-user |
+| table   | users        |
+| version | v1           |
+| action  | list         |
 
 ---
 
-# API Request Example
+## CRUD API Structure
 
-Example request using **cURL**.
+EazeMyAPI automatically generates standard CRUD APIs for every table.
+
+| Operation     | Method | Endpoint                                   |
+| ------------- | ------ | ------------------------------------------ |
+| List Records  | GET    | `/{project}/{table}/{version}/list`        |
+| Create Record | POST   | `/{project}/{table}/{version}/create`      |
+| Update Record | POST   | `/{project}/{table}/{version}/update/{id}` |
+| Delete Record | DELETE | `/{project}/{table}/{version}/delete/{id}` |
+
+---
+
+## API Request Example
+
+### cURL Example
 
 ```bash
-curl https://api.eazemyapi.com/demo-project/v2/get-single-user?id=1 \
+curl "https://api.eazemyapi.com/demo-project/users/v1/list" \
   -H "X-API-SIGNATURE: your-secret-key"
 ```
 
-Example response:
+---
+
+## Example Response
 
 ```json
 {
   "success": true,
   "message": "Data found.",
-  "data": {
-    "id": 1,
-    "name": "Romit",
-    "email": "rm@eazemyapi.com"
-  }
+  "data": [
+    {
+      "id": 1,
+      "name": "Dara Singh",
+      "email": "dara@eazemyapi.com"
+    }
+  ]
 }
 ```
 
 ---
 
-# API Versioning
+## API Versioning
 
 EazeMyAPI uses **versioned APIs** to ensure backward compatibility.
 
-Example versions:
+### Example Versions
 
 ```
 v1
@@ -74,35 +93,32 @@ v2
 v3
 ```
 
-Example:
+### Example
 
 ```
-https://api.eazemyapi.com/demo-project/v2/get-users
+https://api.eazemyapi.com/demo-project/users/v2/list
 ```
 
 Versioning allows your application to continue working even when new features are added.
 
 ---
 
-# Endpoint Naming Convention
+## Endpoint Naming Convention
 
-Endpoints in EazeMyAPI typically follow clear naming patterns.
+Endpoints in EazeMyAPI follow a simple and predictable CRUD-based structure.
 
-Examples:
+| Action        | Description            |
+| ------------- | ---------------------- |
+| `list`        | Fetch all records      |
+| `create`      | Create new record      |
+| `update/{id}` | Update existing record |
+| `delete/{id}` | Delete record by ID    |
 
-| Endpoint | Description |
-|---------|-------------|
-| `get-users` | Fetch all users |
-| `get-single-user` | Fetch one user |
-| `create-user` | Create new user |
-| `update-user` | Update user |
-| `delete-user` | Delete user |
-
-These endpoints are automatically generated based on your database tables.
+These APIs are automatically generated based on your database tables.
 
 ---
 
-# Authentication Header
+## Authentication Header
 
 Every request must include the API signature header.
 
@@ -116,18 +132,21 @@ Learn more about authentication:
 
 ---
 
-# Best Practices
+## Best Practices
 
 When building API requests:
 
-• Always include the **API signature header**  
-• Use the correct **API version**  
-• Validate request parameters  
-• Use HTTPS for secure communication
+* Always include the **API signature header**
+
+* Use the correct **table name in URL**
+
+* Validate request parameters
+
+* Use HTTPS for secure communication
 
 ---
 
-# Related Documentation
+## Related Documentation
 
 Learn how APIs are generated automatically:
 

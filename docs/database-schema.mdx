@@ -1,47 +1,48 @@
+# Database Schema in EazeMyAPI
 
-In EazeMyAPI, your backend is structured using **database tables**.  
+In EazeMyAPI, your backend is structured using **database tables**.
 Each table represents a collection of related data and automatically generates APIs for interacting with that data.
 
 Instead of manually coding backend endpoints, you simply define your **database schema**, and EazeMyAPI generates the API automatically.
 
 ---
 
-# What is a Database Schema?
+## What is a Database Schema?
 
 A **database schema** defines how your data is structured.
 
 It includes:
 
-- Tables
-- Fields
-- Field types
-- Relationships between tables
+* Tables
+* Fields
+* Field types
+* Relationships between tables
 
-Example schema for a simple user system.
+### Example Schema (Users Table)
 
-| Field | Type |
-|------|------|
-| id | NUMBER |
-| name | TEXT |
-| email | EMAIL |
-| phone | PHONE |
-| bio | PARAGRAPH |
-| is_active | BOOLEAN |
-| created_at | DATETIME |
+| Field      | Type      |
+| ---------- | --------- |
+| id         | NUMBER    |
+| name       | TEXT      |
+| email      | EMAIL     |
+| phone      | PHONE     |
+| bio        | PARAGRAPH |
+| is_active  | BOOLEAN   |
+| created_at | DATETIME  |
 
 ---
 
-# Example Record
+## Example Record
 
-Example data stored in the **users** table.
+Example data stored in the **users** table:
 
 ```json
 {
   "id": 1,
-  "name": "Romit",
-  "email": "rm@eazemyapi.com",
+  "name": "Dara Singh",
+  "email": "dara@example.com",
   "phone": "+91 9876543210",
-  "bio": "Founder of EazeMyAPI",
+  "bio": "Founder",
   "is_active": true,
   "created_at": "2026-03-10T10:30:00Z"
 }
@@ -49,95 +50,77 @@ Example data stored in the **users** table.
 
 ---
 
-# Automatic API Generation
+## Automatic API Generation
 
 Once a table is created, EazeMyAPI automatically generates APIs for it.
 
-Example generated endpoints for the **users** table:
+### Generated Endpoints (users table)
 
 ```
-GET /get-users
-GET /get-single-user
-POST /create-user
-PUT /update-user
-DELETE /delete-user
+GET    /{project}/users/{version}/list
+POST   /{project}/users/{version}/create
+POST   /{project}/users/{version}/update/{id}
+DELETE /{project}/users/{version}/delete/{id}
 ```
 
 These APIs allow you to perform standard **CRUD operations**.
 
-- Create data
-- Read data
-- Update data
-- Delete data
+* Create data
+* Read data
+* Update data
+* Delete data
 
 ---
 
-# Example API Endpoint
-
-Example endpoint:
+## Example API Endpoint
 
 ```
-https://api.eazemyapi.com/soche-india/v2/get-single-user
+https://api.eazemyapi.com/demo-project/users/v1/list
 ```
 
-Example request:
+### Example Request
 
 ```bash
-curl https://api.eazemyapi.com/soche-india/v2/get-single-user?id=1
-```
-
-Example response:
-
-```json
-{
-  "id": 1,
-  "name": "Romit",
-  "email": "rm@eazemyapi.com",
-  "phone": "+91 9876543210",
-  "is_active": true
-}
+curl https://api.eazemyapi.com/demo-project/users/v1/list \
+  -H "X-API-SIGNATURE: your-secret-key"
 ```
 
 ---
 
-# Multiple Tables Example
-
-Example schema for a simple blog application.
+## Multiple Tables Example
 
 ### Users Table
 
-| Field | Type |
-|------|------|
-| id | NUMBER |
-| name | TEXT |
-| email | EMAIL |
+| Field      | Type     |
+| ---------- | -------- |
+| id         | NUMBER   |
+| name       | TEXT     |
+| email      | EMAIL    |
 | created_at | DATETIME |
 
 ### Posts Table
 
-| Field | Type |
-|------|------|
-| id | NUMBER |
-| title | TEXT |
-| content | PARAGRAPH |
-| user_id | NUMBER |
-| created_at | DATETIME |
+| Field      | Type      |
+| ---------- | --------- |
+| id         | NUMBER    |
+| title      | TEXT      |
+| content    | PARAGRAPH |
+| user_id    | NUMBER    |
+| created_at | DATETIME  |
 
 ---
 
-# Table Relationships
+## Table Relationships
 
 Tables can be connected using **relationships**.
 
-Example:
+### Example
 
 ```
 users
   ↓
 posts
 ```
-
-In this case:
 
 ```
 posts.user_id → users.id
@@ -147,20 +130,20 @@ This means each post belongs to a specific user.
 
 ---
 
-# Best Practices for Schema Design
+## Best Practices for Schema Design
 
 When designing database tables in EazeMyAPI:
 
-• Keep each table focused on one type of data  
-• Use clear and descriptive field names  
-• Use proper field types for validation  
-• Create relationships when data is connected  
+* Keep each table focused on one type of data
+* Use clear and descriptive field names
+* Use proper field types for validation
+* Create relationships when data is connected
 
 A well-designed schema makes your backend **easier to maintain and scale**.
 
 ---
 
-# Related Documentation
+## Related Documentation
 
 Learn about supported field types:
 
@@ -168,7 +151,7 @@ Learn about supported field types:
 
 ---
 
-# Next Step
+## Next Step
 
 Now learn how APIs are generated automatically.
 

@@ -1,11 +1,8 @@
 This document describes how to interact with **EazeMyAPI generated APIs**.
-
 EazeMyAPI automatically generates REST APIs for each database table in your project.
-
 Describe your app → AI creates database → APIs ready instantly.
 
 Guide:
-
 [Getting Started](getting-started)
 
 ---
@@ -15,13 +12,12 @@ Guide:
 All API requests follow this format:
 
 ```
-https://api.eazemyapi.com/{project}/{version}/{table-name}
+https://api.eazemyapi.com/{project-name}/{table}/{version}/{action}
 ```
 
 Example:
-
 ```
-https://api.eazemyapi.com/ema/v1/users
+https://api.eazemyapi.com/my-project/users/v1/list
 ```
 
 ---
@@ -35,13 +31,11 @@ X-API-SIGNATURE: <your-secret-key>
 ```
 
 You can find your key here:
-
 ```
 Project → Settings → API Signature Key
 ```
 
 Full guide:
-
 [Authentication](authentication)
 
 ---
@@ -51,33 +45,32 @@ Full guide:
 For each table, EazeMyAPI automatically generates REST endpoints.
 
 Example table:
-
 ```
 users
 ```
 
 Generated endpoints:
 
-| Method | Endpoint    | Description              |
-| ------ | ----------- | ------------------------ |
-| GET    | /users      | Retrieve all users       |
-| GET    | /users/{id} | Retrieve a specific user |
-| POST   | /users      | Create a new user        |
-| PUT    | /users/{id} | Update a user            |
-| DELETE | /users/{id} | Delete a user            |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/{project-name}/{table}/{version}/list` | Retrieve all records |
+| GET | `/{project-name}/{table}/{version}/show/:id` | Retrieve a single record |
+| POST | `/{project-name}/{table}/{version}/create` | Create a new record |
+| POST | `/{project-name}/{table}/{version}/update/:id` | Update a record |
+| DELETE | `/{project-name}/{table}/{version}/delete/:id` | Delete a record |
 
 Guide:
-
 [Generating APIs](generate-api)
 
 ---
 
-# Example Request
+# Example Requests
 
-### Get Users
+### List Records
 
 ```javascript
-fetch("https://api.eazemyapi.com/ema/v1/users", {
+fetch("https://api.eazemyapi.com/my-project/users/v1/list", {
+  method: "GET",
   headers: {
     "X-API-SIGNATURE": "your-secret-key"
   }
@@ -86,45 +79,58 @@ fetch("https://api.eazemyapi.com/ema/v1/users", {
 
 ---
 
-# Create Record
+### Show Record
 
 ```javascript
-fetch("https://api.eazemyapi.com/ema/v1/users", {
+fetch("https://api.eazemyapi.com/my-project/users/v1/show/1", {
+  method: "GET",
+  headers: {
+    "X-API-SIGNATURE": "your-secret-key"
+  }
+})
+```
+
+---
+
+### Create Record
+
+```javascript
+fetch("https://api.eazemyapi.com/my-project/users/v1/create", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
     "X-API-SIGNATURE": "your-secret-key"
   },
   body: JSON.stringify({
-    name: "John",
-    email: "john@example.com"
+    name: "Dara Singh",
+    email: "dara@example.com"
   })
 })
 ```
 
 ---
 
-# Update Record
+### Update Record
 
 ```javascript
-fetch("https://api.eazemyapi.com/ema/v1/users/1", {
-  method: "PUT",
+fetch("https://api.eazemyapi.com/my-project/users/v1/update/1", {
+  method: "POST",
   headers: {
     "Content-Type": "application/json",
     "X-API-SIGNATURE": "your-secret-key"
   },
   body: JSON.stringify({
-    name: "John Updated"
+    name: "Dara Singh Updated"
   })
 })
 ```
 
 ---
 
-# Delete Record
+### Delete Record
 
 ```javascript
-fetch("https://api.eazemyapi.com/ema/v1/users/1", {
+fetch("https://api.eazemyapi.com/my-project/users/v1/delete/1", {
   method: "DELETE",
   headers: {
     "X-API-SIGNATURE": "your-secret-key"
@@ -139,12 +145,15 @@ fetch("https://api.eazemyapi.com/ema/v1/users/1", {
 All APIs return JSON responses.
 
 Example:
-
-```
+```json
 {
-  "id": 1,
-  "name": "Romit",
-  "email": "rm@eazemyapi.com"
+  "success": true,
+  "message": "Data found.",
+  "data": {
+    "id": 1,
+    "name": "Dara Singh",
+    "email": "dara@example.com"
+  }
 }
 ```
 
@@ -153,7 +162,6 @@ Example:
 # Next Steps
 
 Learn more about using EazeMyAPI:
-
 * [Creating Tables](create-tables)
 * [Generating APIs](generate-api)
 * [Frontend Integration](frontend-integration)
